@@ -6,12 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <!-- CSS -->
+<link  href="${CP}/resources/css/default.css" rel="stylesheet">
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
 <link>
 
 <title>메인페이지?</title>
 </head>
 <body>
+    <div class = "container">
+        <input type="text" value="이것은 테스트 입니다" readonly="readonly">
+    </div>
 
 </body>
 </html>

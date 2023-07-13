@@ -6,12 +6,10 @@
 <body>
 <h1>로드스캐너 시작페이지</h1>
 <h2>요구사항</h2>
-<div class= "container">
 	<ul>
 	    <li>파일업로드</li>
 	    <li>로그인</li>   
 	</ul>
 	    <input type="text" value="push test" readonly="readonly">
-</div>
 </body>
 </html>
