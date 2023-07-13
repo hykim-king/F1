@@ -176,5 +176,6 @@ $RECYCLE.BIN/
 /target
 /*.classpath
 /*.project
+/.metadata
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,java,windows,macos
