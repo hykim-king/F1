@@ -170,4 +170,11 @@ $RECYCLE.BIN/
 /.idea/
 /target
 
+# Spring Tool Suite(STS) #
+/.settings
+/bin
+/target
+/*.classpath
+/*.project
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij,java,windows,macos
