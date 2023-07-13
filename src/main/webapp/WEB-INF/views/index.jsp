@@ -10,6 +10,6 @@
     <li>파일업로드</li>
     <li>로그인</li>   
 </ul>
-    <input type="text" value="push test">
+    <input type="text" value="push test" readonly="readonly">
 </body>
 </html>
