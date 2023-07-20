@@ -1,6 +1,25 @@
 @charset "UTF-8";
 
-.container{
-	margin: auto;
-	height: 1100px;
+.defaultcontainer{
+  font-family: arial;
+  margin: 25px auto;
+  width: 900px;
+  height: 1000px;
+  outline: dashed 1px black;
 }
+
+.childcontainber{
+  width: 100%;
+  /* 수평 중앙 정렬하기 */
+  margin: 0 auto;  
+}
+table{
+	margin: 10px; 
+	margin: auto;
+	width: 300px
+}
+
+.idpw{
+	width: 220px;
+}
+

@@ -7,20 +7,35 @@
 <meta charset="UTF-8"> 
 <!-- CSS -->
 <link  href="${CP}/resources/css/default.css" rel="stylesheet">
+<link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+<script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
 <link>
 
 <title>메인페이지?</title>
 </head>
 <body>
-    <div class = "container">
-       <div id= "loginBox">
-	       <input type="text" id="id" name="id" placeholder="아이디">
-	       <input type="password" id="pw" name= "pw" placeholder="비밀번호">
-	       <button type="button" id="doLogin" name="doLogin">로그인</button>
-	       <a href="${CP}/findIdPw">회원정보 찾기</a>
+    <div class = "defaultcontainer">  
+       <div id= "loginBox" >  
+           <div class ="childcontainber">
+           <table>
+		       <tr>
+		          <td><input class="idpw" type="text" id="id" name="id" placeholder="아이디"></td>
+		          <td rowspan="2"><button type="button" id="doLogin" name="doLogin" style="height: 52px;">로그인</button></td>
+		       </tr>
+		       <tr>
+		          <td><input class="idpw" type="password" id="pw" name= "pw" placeholder="비밀번호"></td>
+		       </tr>
+		       <tr>
+		          <td><a href="${CP}/findIdPw">회원정보 찾기</a></td>
+		       </tr>
+		   </table>
+	       </div><!--"defaultcontainer"-->
+	       
+	       
+	       
        </div>
-    </div>
+    </div> 
 </body>
 <script>
   $(document).ready(function(){ //모든 화면이 다 로딩이 되면 실행하는 영역

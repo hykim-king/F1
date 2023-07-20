@@ -8,7 +8,7 @@
 <h2>요구사항</h2>
 	<ul>
 	    <li>파일업로드</li>
-	    <li>로그인</li>   
+	    <li><a href = "/login">로그인</a></li>   
 	</ul>
 	    <input type="text" value="push test" readonly="readonly">
 </body>
