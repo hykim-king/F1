@@ -58,7 +58,7 @@ public interface UserService {
 	 * @return 1: 있음, 0: 없음
 	 * @throws SQLException
 	 */
-	public int doSearchPw(MemberVO user) throws SQLException;
+	public String doSearchPw(MemberVO user) throws SQLException;
 	
 	/**
 	 * 회원 정보 삭제

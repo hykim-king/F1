@@ -27,6 +27,13 @@ public interface UserDao {
 	public MemberVO searchId(MemberVO user) throws SQLException;
 	
 	/**
+	 * 비밀번호 여부  체크
+	 * @param user
+	 * @return 해당 pw
+	 * @throws SQLException
+	 */
+	public MemberVO searchPw(MemberVO user) throws SQLException;
+	/**
 	 * 아이디 존재 여부  체크
 	 * @param user
 	 * @return 해당 id

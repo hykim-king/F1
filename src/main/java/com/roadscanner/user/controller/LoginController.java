@@ -224,29 +224,28 @@ public class LoginController {
     @ResponseBody     
     public String findPw(MemberVO user, HttpSession httpSession) throws SQLException {
         System.out.println("┌────────────────────────────────────────────────────────┐");
-        System.out.println("│ findId()                                               │");
-        System.out.println("│ 아이디찾기 기능                                                   │");
+        System.out.println("│ findPw()                                               │");
+        System.out.println("│ 비밀번호찾기 기능                                                                                     │");
         System.out.println("└────────────────────────────────────────────────────────┘");
         String jsonString = "";    
         MessageVO message = new MessageVO();
         
         System.out.println("┌────────────────────────────────────────────────────────┐");
-        int result = -1;
-        result = this.userService.doSearchPw(user);        
-        if(-1 ==result) {         
+
+        String pwresult = "-1";
+        pwresult = this.userService.doSearchPw(user);        
+        if("-1".equals(pwresult)) {         // (10 : id 오류)
             message.setMsgId("10");
-            message.setMsgContents("아이디, 이름, 이메일를 확인해 주세요.");
-        }else if(1 ==result){                    // (30 : 성공)
+            message.setMsgContents("아이디와 이름을 확인해 주세요.");
+        }else {                    
             message.setMsgId("30");
-            message.setMsgContents("비밀번호는 '123123'으로 초기화 되었습니다.");
-        }else {    
-            message.setMsgId("99");
-            message.setMsgContents("알수 없는 오류");        
+            message.setMsgContents("비밀번호는 " +pwresult+" 입니다.");
         }
         jsonString = new Gson().toJson(message);        
         System.out.println("│ jsonString : "+jsonString);
         System.out.println("└────────────────────────────────────────────────────────┘");
         return jsonString;    
-    }
+    }    
+	}
 	
-}
+

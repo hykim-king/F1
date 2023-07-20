@@ -18,6 +18,7 @@
 	       <input type="text" id="id" name="id" placeholder="아이디">
 	       <input type="password" id="pw" name= "pw" placeholder="비밀번호">
 	       <button type="button" id="doLogin" name="doLogin">로그인</button>
+	       <a href="${CP}/findIdPw">회원정보 찾기</a>
        </div>
     </div>
 </body>

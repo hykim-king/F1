@@ -54,6 +54,7 @@ public class UserDaoImpl implements UserDao {
 
 		return flag;
 	}
+	
 
 	@Override
 	public int passCheck(MemberVO user) throws SQLException {
@@ -126,6 +127,17 @@ public class UserDaoImpl implements UserDao {
 		flag = this.sqlSessionTemplate.selectOne(statement, user);
 
 		return flag;
+	}
+	
+	@Override
+	public MemberVO searchPw(MemberVO user) throws SQLException {
+		String statement = this.NAMESPACE + DOT + "searchPw";
+		LOG.debug("┌────────────────────────────────────────────────────────┐");
+		LOG.debug("│ statement " + statement);
+		LOG.debug("└────────────────────────────────────────────────────────┘");
+		MemberVO outVO = this.sqlSessionTemplate.selectOne(statement, user);
+
+		return outVO;
 	}
 
 	@Override

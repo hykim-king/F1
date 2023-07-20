@@ -101,16 +101,21 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-    public int doSearchPw(MemberVO user) throws SQLException {//10(id 없음)/20(비밀번호 수정 오류),30(비밀번호 수정 성공) 
-        int checkStatus = -1;
+    public String doSearchPw(MemberVO user) throws SQLException {//10(id 없음)/20(비밀번호 수정 오류),30(비밀번호 수정 성공) 
+		LOG.debug("┌────────────────────────────────────────────────────────┐");
+		LOG.debug("│ doSearchPw()                                           │");
+		LOG.debug("└────────────────────────────────────────────────────────┘");
+		String pwresult = "-1";
+		
+		int checkStatus = 0;
         checkStatus = this.userDao.searchPwCheck(user);
+        
         if(0==checkStatus) {
-            checkStatus = -1;
+        	pwresult = "-1";
         } else if(1==checkStatus) {
-            user.setPw("123123");     // passUpdate to "123123"
-            checkStatus = userDao.updatePw(user);
+        	pwresult = this.userDao.searchPw(user).getPw(); 
         } 
-        return checkStatus;
+        return pwresult;
     }
 
 	@Override
