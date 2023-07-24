@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HomeController {
-    @GetMapping("/")
-    public String index() {
-        return "index";
+@RequestMapping("/board")
+public class BoardController {
+
+    @GetMapping("/write")
+    public String writeView() {
+        return "write";
     }
 }
-
-
