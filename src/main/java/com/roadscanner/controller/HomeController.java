@@ -17,9 +17,9 @@ public class HomeController {
         return "index";
     }
     
-    @RequestMapping("/main")
-    public String mainmenu() {
-        return "mainmenu";
+    @RequestMapping("/test")
+    public String test() {
+        return "test";
     }
 
 }

@@ -10,7 +10,7 @@
 <link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
 <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
-<link>
+
 
 <title>메인페이지?</title>
 </head>
@@ -30,10 +30,7 @@
 		          <td><a href="${CP}/findIdPw">회원정보 찾기</a></td>
 		       </tr>
 		   </table>
-	       </div><!--"defaultcontainer"-->
-	       
-	       
-	       
+	       </div><!--"defaultcontainer"-->       
        </div>
     </div> 
 </body>
