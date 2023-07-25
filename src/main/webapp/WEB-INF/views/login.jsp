@@ -86,7 +86,7 @@
                   alert(paredJSON.msgContents);
                   
                   //javascript 내장객체 : url
-                  window.location.href="#";
+                  window.location.href="${CP}/mypage";
                 }
               },
               error:function(data){//실패시 처리
