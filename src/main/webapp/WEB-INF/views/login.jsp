@@ -29,6 +29,9 @@
 		       <tr>
 		          <td><a href="${CP}/findIdPw">회원정보 찾기</a></td>
 		       </tr>
+		         <tr>
+                  <td><a href="${CP}/registerpage">회원가입</a></td>
+               </tr>
 		   </table>
 	    </div>
     </div>
