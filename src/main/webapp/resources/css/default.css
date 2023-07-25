@@ -1,27 +1,20 @@
 @charset "UTF-8";
 
-.defaultcontainer{
-  font-family: arial;
-  margin: 25px auto;
-  width: 900px;
-  height: 1000px;
-  outline: dashed 1px black;
-}
-
-.childcontainber{
-  width: 100%;
-  /* 수평 중앙 정렬하기 */
-  margin: 0 auto;  
-}
-
-.container{
+.roadscannercontainer{
 	width: 900px;
-	margin: 25px auto;
-	text-align: center;
-	
+	margin: auto;
+	margin-top: 25px;
+	text-align: center;	
 }
-table{
-	margin: 10px; 
+
+.roadscannerlogin{
+	width: 100%;
+    margin: auto;
+    
+}
+
+.table {
+	margin-top: 300px;
 	margin: auto;
 	width: 300px
 }

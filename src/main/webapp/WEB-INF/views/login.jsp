@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="CP" value="${pageContext.request.contextPath }"/>  
 <!DOCTYPE html>
 <html>
@@ -15,9 +16,8 @@
 <title>메인페이지?</title>
 </head>
 <body>
-    <div class = "defaultcontainer">  
-       <div id= "loginBox" >  
-           <div class ="childcontainber">
+    <div class = "roadscannercontainer">  
+        <div>
            <table>
 		       <tr>
 		          <td><input class="idpw" type="text" id="id" name="id" placeholder="아이디"></td>
@@ -30,9 +30,9 @@
 		          <td><a href="${CP}/findIdPw">회원정보 찾기</a></td>
 		       </tr>
 		   </table>
-	       </div><!--"defaultcontainer"-->       
-       </div>
-    </div> 
+	    </div>
+    </div>
+
 </body>
 <script>
   $(document).ready(function(){ //모든 화면이 다 로딩이 되면 실행하는 영역
