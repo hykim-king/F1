@@ -10,6 +10,6 @@ public class BoardController {
 
     @GetMapping("/write")
     public String writeView() {
-        return "write";
+        return "/board/write";
     }
 }
