@@ -25,6 +25,7 @@ public interface UserDao {
 	 * @throws SQLException
 	 */
 	public MemberVO searchId(MemberVO user) throws SQLException;
+
 	
 	/**
 	 * 비밀번호 여부  체크
@@ -72,6 +73,7 @@ public interface UserDao {
 	 * @throws SQLException
 	 */
 	public int idCheck(MemberVO user) throws SQLException;
+	public int emailCheck(MemberVO user) throws SQLException;
 	
 	/**
 	 * 회원가입

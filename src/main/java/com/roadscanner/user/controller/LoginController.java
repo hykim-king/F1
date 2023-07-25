@@ -104,72 +104,15 @@ public class LoginController {
         return jsonString;        		
 	}
     
-    @RequestMapping(value = "/modeLogin", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-    @ResponseBody         //해당 내용이 화면이 아닌 데이터만 던진자고 알려주는 것임
-    public String loginButtonEventMode(MemberVO user, Model model, HttpSession httpSession ) throws SQLException {        
-        LOG.debug("┌────────────────────────────────────────────────────────┐");
-        System.out.println("│ loginButtonEventMode()                                 │");
-        LOG.debug("└────────────────────────────────────────────────────────┘");
-        String jsonString = "";        
-        LOG.debug("┌────────────────────────────────────────────────────────┐");
-        LOG.debug("│ user : "+user);
-        MessageVO message = new MessageVO();
-        
-        // (1 : id 미입력)
-        if(null == user.getId() || "".equals(user.getId())) {
-            message.setMsgId("1");
-            message.setMsgContents("아이디를 입력 하세요.");
-            return new Gson().toJson(message);        
-        }
-        // (2 : pass 미입력)
-        if(null == user.getPw() || "".equals(user.getPw())) {
-            message.setMsgId("2");
-            message.setMsgContents("비밀번호를 입력 하세요.");
-            return new Gson().toJson(message);        
-        }
-        
-        int status = this.userService.doLogin(user);        
-        if(10==status) {         // (10 : id 오류)
-            message.setMsgId("10");
-            message.setMsgContents("아이디를 확인 하세요.");
-        }else if(20==status) {     // (20 : pass 오류)
-            message.setMsgId("20");
-            message.setMsgContents("비밀번호를 확인  하세요.");
-        }else if(30==status) {                    // (30 : 성공)
-            message.setMsgId("30");
-            message.setMsgContents(user.getId()+"가 로그인 되었습니다.");
-            
-            //----------------------------------------------------------
-            //- 사용자 정보 조회 : session처리
-            //----------------------------------------------------------
-            MemberVO userInfo = userService.selectUser(user);
-            if(null!=userInfo) {
-                httpSession.setAttribute("user", userInfo);
-            }
-        }else {
-            message.setMsgId("99");
-            message.setMsgContents("알수 없는 오류");            
-        }
-        jsonString = new Gson().toJson(message);
-        
-        LOG.debug("│ jsonString : "+jsonString);
-        LOG.debug("└────────────────────────────────────────────────────────┘");
-        return jsonString;        		
-	}
+    
 	
 	/* 로그아웃시에 셰션 제거 호출  */
     @GetMapping("/logout")
     public String logoutButtonEvent(HttpSession session) {
 		session.invalidate();
-		return "mode";	
+		return "/";	
 	}
-    
-    @GetMapping("/logout2")
-    public String logoutButtonEvent2(HttpSession session) {
-		session.invalidate();
-		return "main";	
-	}
-    
+
     /**
      * 아이디/비밀번호 찾기 화면
      * @return
@@ -207,6 +150,7 @@ public class LoginController {
         }else {                    
             message.setMsgId("30");
             message.setMsgContents("아이디는 " +result+" 입니다.");
+            
         }
         jsonString = new Gson().toJson(message);        
         System.out.println("│ jsonString : "+jsonString);
@@ -245,7 +189,96 @@ public class LoginController {
         System.out.println("│ jsonString : "+jsonString);
         System.out.println("└────────────────────────────────────────────────────────┘");
         return jsonString;    
-    }    
+    }
+    
+    @RequestMapping(value = "/idDulpCheck", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String membershipIdCheck(MemberVO user, HttpSession httpSession) throws SQLException {
+		System.out.println("┌────────────────────────────────────────────────────────┐");
+        System.out.println("│ membershipIdCheck()                                    │");
+        System.out.println("└────────────────────────────────────────────────────────┘");
+        
+        String jsonString = "";
+        MessageVO message = new MessageVO();
+        
+        System.out.println("===================================================");
+        
+        int result = 0;
+        result = this.userService.doIdDuplCheck(user);
+        
+        if(10 == result) {
+        	message.setMsgId("10");
+        	message.setMsgContents("해당 ID는 사용할 수 없습니다");
+        } else if(20 == result) {
+        	message.setMsgId("20");
+        	message.setMsgContents("사용할 수 있는 ID입니다");
+        } 
+        
+       jsonString = new Gson().toJson(message);
+       System.out.println("│ jsonString : "+jsonString);
+        
+        System.out.println("===================================================");
+        
+        return jsonString;
+	}
+    
+    @RequestMapping(value = "/emailDulpCheck", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String emailDulpCheck(MemberVO user, HttpSession httpSession) throws SQLException {
+		System.out.println("┌────────────────────────────────────────────────────────┐");
+        System.out.println("│ membershipIdCheck()                                    │");
+        System.out.println("└────────────────────────────────────────────────────────┘");
+        
+        String jsonString = "";
+        MessageVO message = new MessageVO();
+        
+        System.out.println("===================================================");
+        
+        int result = 0;
+        result = this.userService.doEmailDuplCheck(user);
+        
+        if(10 == result) {
+        	message.setMsgId("10");
+        	message.setMsgContents("해당 이메일은 사용할 수 없습니다");
+        } else if(20 == result) {
+        	message.setMsgId("20");
+        	message.setMsgContents("사용할 수 있는 이메일입니다");
+        } 
+        
+       jsonString = new Gson().toJson(message);
+       System.out.println("│ jsonString : "+jsonString);
+        
+        System.out.println("===================================================");
+        
+        return jsonString;
+	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String membershipRegister(MemberVO user) throws Exception {
+		System.out.println("┌────────────────────────────────────────────────────────┐");
+        System.out.println("│ membershipRegister()                                   │");
+        System.out.println("└────────────────────────────────────────────────────────┘");
+        System.out.println("│ user : "+ user.toString());
+
+        
+		int flag = this.userService.register(user);
+		
+		String jsonString = "";
+		MessageVO message = new MessageVO();
+		
+		if(10 == flag) {
+			message.setMsgId("10");
+			message.setMsgContents("축하합니다, 회원가입에 성공했습니다");
+		} else if(20 == flag){
+			message.setMsgId("20");
+			message.setMsgContents("회원가입에 실패했습니다");
+		}	
+		
+		jsonString = new Gson().toJson(message);
+		
+		return jsonString;
+	}
 	}
 	
 

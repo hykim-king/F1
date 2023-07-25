@@ -13,6 +13,13 @@
   /* 수평 중앙 정렬하기 */
   margin: 0 auto;  
 }
+
+.container{
+	width: 900px;
+	margin: 25px auto;
+	text-align: center;
+	
+}
 table{
 	margin: 10px; 
 	margin: auto;

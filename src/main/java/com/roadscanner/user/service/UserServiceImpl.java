@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.roadscanner.domain.MemberVO;
 import com.roadscanner.user.dao.UserDao;
 import com.roadscanner.user.dao.UserDaoImpl;
@@ -19,6 +20,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
 	
+	
 	@Override
 	public MemberVO selectUser(MemberVO user) throws SQLException {
 		LOG.debug("┌────────────────────────────────────────────────────────┐");
@@ -26,29 +28,72 @@ public class UserServiceImpl implements UserService {
 		LOG.debug("└────────────────────────────────────────────────────────┘");
 		return userDao.selectOne(user);
 	}
-
+	
 	@Override
-	public int doSignUp(MemberVO user) throws SQLException {
-		LOG.debug("┌────────────────────────────────────────────────────────┐");
-		LOG.debug("│ doSignUp()                                             │");
-		LOG.debug("└────────────────────────────────────────────────────────┘");
+	public int register(MemberVO user) throws SQLException {
+		System.out.println("============================================");
+		System.out.println("MembershipServiceImpl register()");
+		System.out.println("============================================");
+			
 		
-		int flag = this.doIdDuplCheck(user); // 아이디 중복 확인			
-		if(1==flag) { 	// 이미 동일한 아이디가 있습니다
-			return 0;
-		}else {   			// 중복된 아이디가 없습니다
-			return userDao.addUser(user); // 회원가입 진행
-		}		
+		int idCheck = this.userDao.idCheck(user);
+		int emailCheck = this.userDao.emailCheck(user);
+		int flag = this.userDao.addUser(user);
+		
+		System.out.println("MembershipServiceImpl idCheck : "+idCheck);
+		System.out.println("MembershipServiceImpl emailCheck : "+emailCheck);
+		System.out.println("MembershipServiceImpl flag : "+flag);
+		
+		// 10 : 가입 성공 / 20 : 가입 실패
+		if(1 != idCheck) {
+			flag = 10;
+		} else {
+			flag = 20;
+		}
+		
+		return flag;
 	}
-
+	
+	
+	
 	@Override
 	public int doIdDuplCheck(MemberVO user) throws SQLException {
-		LOG.debug("┌────────────────────────────────────────────────────────┐");
-		LOG.debug("│ doIdDuplCheck()                                        │");
-		LOG.debug("└────────────────────────────────────────────────────────┘");
-		return this.userDao.idCheck(user);
+		System.out.println("┌────────────────────────────────────────────────────────┐");
+		System.out.println("│ doIdDuplCheck()                                        │");
+		System.out.println("└────────────────────────────────────────────────────────┘");
+		
+		int result = 0;
+		int flag = 0;
+		
+		flag = this.userDao.idCheck(user);
+		
+		if(1 == flag) {
+			result = 10;
+		} else if (0 == flag) {
+			result = 20;
+		} 
+		return result;
 	}
-
+	
+	@Override
+	public int doEmailDuplCheck(MemberVO user) throws SQLException {
+		LOG.debug("┌────────────────────────────────────────────────────────┐");
+		LOG.debug("│ doEmailDuplCheck()                                     │");
+		LOG.debug("└────────────────────────────────────────────────────────┘");
+		
+		int result = 0;
+		int flag = 0;
+		
+		flag = this.userDao.emailCheck(user);
+		
+		if(1 == flag) {
+			result = 10;
+		} else if (0 == flag) {
+			result = 20;
+		} 
+		return result;
+	}
+	
 	@Override
 	public int deleteOne(MemberVO user) throws SQLException {
 		LOG.debug("┌────────────────────────────────────────────────────────┐");
@@ -137,4 +182,5 @@ public class UserServiceImpl implements UserService {
 		LOG.debug("└────────────────────────────────────────────────────────┘");
 		return userDao.selectOneMypage(user);
 	}
+
 }

@@ -18,6 +18,7 @@ public interface UserService {
 	 */
 	public MemberVO selectUser(MemberVO user) throws SQLException;
 	
+	
 	public MemberVO selectOneMypage(MemberVO user) throws SQLException;
 	
 	/**
@@ -34,7 +35,7 @@ public interface UserService {
 	 * @return 1: 성공 , 0: 실패
 	 * @throws SQLException
 	 */
-	public int doSignUp(MemberVO user) throws SQLException;
+	public int register(MemberVO user) throws SQLException;
 	
 	/**
 	 * 아이디 중복 검사
@@ -43,6 +44,14 @@ public interface UserService {
 	 * @throws SQLException
 	 */
 	public int doIdDuplCheck(MemberVO user) throws SQLException;
+	
+	/**
+	 * 아이디 중복 검사
+	 * @param user
+	 * @return 1: id 존재 , 0: id 없음 
+	 * @throws SQLException
+	 */
+	public int doEmailDuplCheck(MemberVO user) throws SQLException;
 	
 	/**
 	 * 아이디 여부 확인 id 반환

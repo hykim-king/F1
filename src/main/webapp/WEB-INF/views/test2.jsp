@@ -31,6 +31,5 @@ $(document).ready(function(){
 	      console.log("change");
 	 }); //change
 });
-
 </script>
 </html>

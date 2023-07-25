@@ -17,9 +17,14 @@ public class HomeController {
         return "index";
     }
     
-    @RequestMapping("/test")
-    public String test() {
-        return "test";
+    @RequestMapping("/registerpage")
+    public String registerpage() {
+        return "registerpage";
+    }
+    
+    @RequestMapping("/test2")
+    public String test2() {
+        return "test2";
     }
 
 }

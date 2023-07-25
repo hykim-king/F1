@@ -18,16 +18,16 @@
     <a href="${CP}/login">로그인 페이지</a>
       <div><!-- id 찾기 -->
         <form>
-          <input type="text" id="name" name="name" placeholder="이름">
           <input type="email" id="email" name= "email" placeholder="이메일">
           <button type="button" id="findId" name="findId">아이디 찾기</button>
         </form>
+        <input type ="hidden" id ="id" name ="id">
       </div><!-- id 찾기 -->
       
 	  <div><!-- pw 찾기 -->
         <form>
           <input type="text" id="userId" name="userId" placeholder="아이디">
-          <input type="text" id="name2" name= "name2" placeholder="이름">
+          <input type="email" id="email2" name= "email2" placeholder="이메일">
           <button type="button" id="findPw" name="findPw">비밀번호 찾기</button>
         </form>
       </div><!-- pw 찾기 -->  
@@ -36,14 +36,9 @@
    <script>
     $(document).ready(function(){ //모든 화면이 다 로딩이 되면 실행하는 영역
         $("#findId").on("click",function(){ 
-          console.log("name  : "+$("#name").val());
+          
           console.log("email : "+$("#email").val());
             
-          if(""==$("#name").val() || 0==$("#name").val().length){
-              alert("이름을 입력하세요");  // javascript 메시지 다이얼 로그
-              $("#name").focus();          // jquery로 포커스를 이동시킨다.
-              return;
-            }
           
           if(""==$("#email").val() || 0==$("#email").val().length){
               alert("이메일을 입력하세요");  // javascript 메시지 다이얼 로그
@@ -57,7 +52,7 @@
                 /* asyn:"true", */
                 dataType:"html",
                 data:{
-                    name: $("#name").val(),
+                  
                     email: $("#email").val()
                 },
                 success:function(data){//통신 성공
@@ -70,8 +65,14 @@
                       alert(paredJSON.msgContents);  // javascript 메시지 다이얼 로그
                       return;
                     }
-                    if("30"==paredJSON.msgId){//로그인 성공
+                    if("30"==paredJSON.msgId){ //서치 성공
                       alert(paredJSON.msgContents);
+                      const id = paredJSON.msgContents.split(' ');
+                      console.log("id:"+id[1]);
+                      $('input[name=userId]').attr('value',id[1]);
+                      $('input[name=email2]').attr('value',$('#email').val());
+                      $('#email').val('');
+                      
                     }
                   },
                   error:function(data){//실패시 처리
@@ -84,16 +85,16 @@
         
         $("#findPw").on("click",function(){  
             console.log("userId : "+$("#userId").val());
-            console.log("name  : "+$("#name2").val());
+            console.log("email2  : "+$("#email2").val());
 
             if(""==$("#userId").val() || 0==$("#userId").val().length){
               alert("아이디를 입력하세요");  
               $("#userId").focus();      
               return;
             }
-            if(""==$("#name2").val() || 0==$("#name2").val().length){
+            if(""==$("#email2").val() || 0==$("#email2").val().length){
               alert("이름을 입력하세요");  
-              $("#name2").focus();      
+              $("#email2").focus();      
               return;
             }
            
@@ -104,7 +105,7 @@
                   dataType:"html",
                   data:{
                     id   : $("#userId").val(),
-                    name : $("#name2").val(),
+                    email : $("#email2").val(),
                     
                   },
                   success:function(data){//통신 성공
@@ -119,6 +120,7 @@
                       }
                       if("30"==paredJSON.msgId){//로그인 성공
                         alert(paredJSON.msgContents);
+                        
                       }
                     },
                     error:function(data){//실패시 처리
