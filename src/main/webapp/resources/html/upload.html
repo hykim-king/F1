@@ -2,9 +2,126 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>File Upload</title>
+<style>
+   body {
+     margin: 0;
+     padding: 0;
+     display: flex;
+     height: 100vh;
+     overflow: hidden;
+   }
+   
+   .left {
+     flex: 1;
+     border: 1px solid #ccc;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+   
+   .right {
+     flex: 1;
+     overflow: auto;
+     justify-content: center;
+     align-items: center;
+   }
+   
+   .divider {
+     width: 1px;
+     background-color: #ccc;
+     height: 100%;
+   }
+   
+   #fileUploadLabel {
+     margin-left: 20px;
+     cursor: pointer;
+     display: inline-block;
+     overflow: hidden;
+     position: relative;
+     width: 400px;
+     height: 400px;
+   }
+   
+   #fileUploadLabel img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     position: relative;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+   }
+   
+   #FeedbackButtons {
+     width: 80%;
+     display: flex;
+     justify-content: space-between;
+     padding: 30px;
+   }
+   
+   #FeedbackButtons button {
+     width: calc(50% - 30px);
+     height: 60px;
+     font-size: 22px;
+   }
+   
+   label {
+     display: block;
+     text-align: center;
+   }
+   
+   input[type="submit"] {
+     margin-top: 40px;
+     display: block;
+     width: 100%;
+     height: 60px;
+     font-size: 22px;
+   }
+   
+   input[type="file"] {
+     opacity: 0;
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     cursor: pointer;
+     display: none;
+   }
+</style>
 </head>
 <body>
+  <div class="left">
+	  <form action="upload_ok" method="post" enctype="multipart/form-data">
+	    <label for="fileUpload" id="fileUploadLabel">
+	      <img alt="UploadButton" src="../uploadButton.jpg" width="400" height="400">
+	    </label>
+	    <!-- 파일 선택 -->
+	    <input type="file" id=fileUpload name="fileUpload">
+	    <!-- 모델로 사진 전송, 실행 -->
+	    <input type="submit" value="표지판 알아보기">
+	  </form>
+  </div>
 
+  <div class="divider"></div>
+
+  <div class="right">
+    <!-- 우측 영역의 내용을 입력 -->
+    <h2>우측 영역</h2>
+    <p>임시 구분선입니다.</p>
+    <!-- 세로로 긴 내용 -->
+    <p>[1]동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [2]남산 위에 저 소나무, 철갑을 두른 듯 바람서리 불변함은 우리 기상일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [3]가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [4]이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세</p>
+    <p>[1]동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [2]남산 위에 저 소나무, 철갑을 두른 듯 바람서리 불변함은 우리 기상일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [3]가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [4]이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세</p>
+    <p>[1]동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [2]남산 위에 저 소나무, 철갑을 두른 듯 바람서리 불변함은 우리 기상일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [3]가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [4]이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세</p>
+    <p>[1]동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [2]남산 위에 저 소나무, 철갑을 두른 듯 바람서리 불변함은 우리 기상일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [3]가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [4]이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세</p>
+    <p>[1]동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [2]남산 위에 저 소나무, 철갑을 두른 듯 바람서리 불변함은 우리 기상일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [3]가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [4]이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세</p>
+    <p>[1]동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [2]남산 위에 저 소나무, 철갑을 두른 듯 바람서리 불변함은 우리 기상일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [3]가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세 [4]이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려강산 대한 사람, 대한으로 길이 보전하세</p>
+	  <!-- 피드백 버튼 -->
+	  <div id="FeedbackButtons">
+	    <button id="likeButton">좋아요</button>
+	    <button id="dislikeButton">싫어요</button>
+	  </div>
+  </div>
 </body>
 </html>
