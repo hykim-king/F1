@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.Member">
+	<resultMap id="MemberMap" type="MemberVO">
+        <result column="no"         property="no"       />
+        <result column="grade"      property="grade"    />
+        <result column="name"       property="name"     />
+        <result column="id"         property="id"       />
+        <result column="pw"         property="pw"       />
+        <result column="tel"        property="tel"      />
+        <result column="birth"      property="birth"    />
+        <result column="sex"        property="sex"      />
+        <result column="post_num"   property="postNum"  />
+        <result column="n_addr"     property="nAddr"    />
+        <result column="o_addr"     property="oAddr"    />
+        <result column="rest_addr"  property="restAddr" />
+        <result column="email"      property="email"    /> 
+        <result column="reg_dt"     property="regDt"    />
+        <result column="del"        property="del"      />
+    </resultMap>    
+    
+    <!-- 아이디로 회원정보 반환 -->
+    <select id="selectOne" parameterType="MemberVO"  resultMap="MemberMap" >
+        SELECT *
+        FROM member
+        WHERE id = #{id} 
+    AND del = '0'
+    </select>
+    
+    
+    <select id="selectOneMypage" parameterType="MemberVO"  resultMap="MemberMap" >
+        SELECT no, grade, name, id, pw, tel, birth, sex, post_NUM, N_ADDR, O_ADDR, REST_ADDR, 
+        SUBSTR(email, 1, INSTR(email, '@')-1)AS emailFront,
+        SUBSTR(email, INSTR(email, '@') + 1) AS emailBack,
+        REG_DT, del
+        FROM member
+        WHERE id = #{id} 
+    AND del = '0'
+    </select>
+    
+    <!-- 아이디 체크 -->
+    <select id="idCheck" parameterType="MemberVO" resultType="int">
+      SELECT COUNT(*) cnt
+      FROM member
+      WHERE id = #{id}
+    </select>
+    
+    
+    <!-- 이메일 체크 -->
+    <select id="emailCheck" parameterType="MemberVO" resultType="int">
+      SELECT COUNT(*) cnt
+      FROM member
+      WHERE email = #{email}
+    </select>
+    
+    <!-- 아이디 + 패스워드 체크 -->
+    <select id="passCheck" parameterType="MemberVO" resultType="int">
+      SELECT COUNT(*) cnt
+      FROM member
+      WHERE id = #{id}
+      AND pw = #{pw}
+    AND del = '0'
+    </select>
+    
+  <!-- 이메일로  아이디 존재 여부 검색 -->
+  <select id="searchIdCheck" parameterType="MemberVO" resultType="int">
+    SELECT COUNT(*) cnt
+    FROM member
+    WHERE email  = #{email}
+    AND del = '0'
+    </select>    
+    
+    <!-- 이메일로  아이디 검색 -->
+    <select id="searchId" parameterType="MemberVO" resultMap="MemberMap">
+      SELECT id
+      FROM member
+      WHERE email  = #{email}
+    AND del = '0'
+    </select>
+        
+    <!-- 이름 + 아이디  계정 여부 검색 -->
+    <select id="searchPwCheck" parameterType="MemberVO" resultType="int">
+      SELECT COUNT(*) cnt
+      FROM member
+      WHERE email = #{email}
+      AND id     = #{id}
+    AND del = '0'
+    </select>
+    
+     <!-- 이름 + 이메일로  아이디 검색 -->
+    <select id="searchPw" parameterType="MemberVO" resultMap="MemberMap">
+      SELECT pw
+      FROM member
+      WHERE email = #{email}
+      AND id  = #{id}
+    AND del = '0'
+    </select>
+    
+    <!-- 회원가입  -->
+    <insert id="insertOne" parameterType="MemberVO" >
+    INSERT INTO member (
+		        no,       
+		        grade,    
+                name,     
+                id,       
+                pw,       
+                tel,      
+                birth,    
+                sex,      
+                post_num, 
+                n_addr,   
+                o_addr,   
+                rest_addr,
+                email,    
+                reg_dt,   
+                del 
+     ) VALUES (
+        MEMBER_NO.NEXTVAL,
+        #{grade},    
+        #{name},     
+        #{id},       
+        #{pw},       
+        #{tel},    
+        TO_DATE(#{birth},'YY/MM/DD'),
+        #{sex},      
+        #{postNum}, 
+        #{nAddr},   
+        #{oAddr},   
+        #{restAddr},
+        #{email},
+        SYSDATE,  
+        #{del}
+     )      
+  </insert>  
+    
+  <!-- 사용자 비밀번호 변경 -->
+  <update id="updatePw" parameterType="MemberVO">
+    UPDATE member         
+    SET  pw = #{pw}   
+    
+    WHERE name = #{name}
+    AND email  = #{email}
+    AND id   = #{id}
+    AND del = '0'
+  </update>
+  
+  <!-- 사용자 정보 변경 -->
+  <update id="updateUser" parameterType="MemberVO">
+    UPDATE member         
+    SET name      = #{name},  
+        pw        = #{pw},
+        tel       = #{tel},
+        post_num  = #{postNum},
+        n_addr    = #{nAddr},
+        o_addr    = #{oAddr},
+        rest_addr = #{restAddr},
+        email     = #{email}
+    WHERE no = #{no}
+  </update>
+  
+  <!-- 주소 즐겨찾기 delete:1로  update-->
+  <update id="updateDel" parameterType="int">
+    UPDATE member
+    SET del = '1'
+    WHERE no = #{no}
+  </update> 
+  
+  <!-- 유저 삭제 -->
+  <delete id="deleteOne" parameterType="MemberVO">
+    DELETE FROM member
+    WHERE id = #{id}
+  </delete>
+</mapper>

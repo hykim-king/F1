@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.roadscannercontainer{
+	width: 900px;
+	margin: auto;
+	margin-top: 25px;
+	text-align: center;	
+}
+
+.roadscannerlogin{
+	width: 100%;
+    margin: auto;
+    
+}
+
+.table {
+	margin-top: 300px;
+	margin: auto;
+	width: 300px
+}
+
+.idpw{
+	width: 220px;
+}
+
