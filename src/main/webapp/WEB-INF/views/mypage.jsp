@@ -18,19 +18,28 @@
   <form>
     <div>
       <label>아이디</label>
+<<<<<<< HEAD
       <input type="text" readonly="readonly" value="${user.uid}">
+=======
+      <input type="text" id="uid" readonly="readonly" value="${user.uid}">
+>>>>>>> 4dcb4599c8db6e8a4d9779ad279c5773fa21a574
     </div>
     <div>
       <label>비밀번호 수정</label>
-      <input type="password" placeholder="문자, 숫자, 특수문자 포함 8~20글자)" >
+      <input type="password" id="upassword" placeholder="문자, 숫자, 특수문자 포함 8~20글자)" >
     </div>
     <div>
-      <label>비밀번호 확인</label>
-      <input type="password">
+      <label>비밀번호 확인</label><br/>
+      <input type="password" id="upassword2" placeholder="비밀번호 재입력" onchange="check_pw()"><br/>
+      <label id="pw_check"></label>
     </div>
     <div>
       <label>이메일</label>
+<<<<<<< HEAD
       <input type="text" readonly="readonly" value="${user.uemail}">
+=======
+      <input type="text" id="uemail" readonly="readonly" value="${user.uemail}">
+>>>>>>> 4dcb4599c8db6e8a4d9779ad279c5773fa21a574
     </div>
   </form>
   <form>
@@ -47,6 +56,39 @@
   </div>
 </body>
 <script>
+function check_pw() {
+    var pw = document.getElementById('upassword').value;
+    var num = pw.search(/[0-9]/g);
+    var eng = pw.search(/[a-z]/ig);
+    var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+    if(pw.length<8 || pw.length>20) {
+       window.alert('비밀번호는 8글자 이상, 20글자 이하만 이용 가능합니다.');
+       document.getElementById('upassword').value='';
+    } else if(pw.search(/\s/) != -1) {
+       window.alert('비밀번호는 공백 없이 이용 가능합니다');
+       document.getElementById('upassword').value='';
+    } else if(num < 0 || eng < 0 || spe < 0) {
+       window.alert('영문, 숫자, 특수문자를 최소 1글자 이상씩 사용하여 입력해주세요');
+       document.getElementById('upassword').value='';
+    }           
+    
+    if(document.getElementById('upassword').value !='' && document.getElementById('upassword2').value!='') {
+      
+        if(document.getElementById('upassword').value == document.getElementById('upassword2').value) {
+            document.getElementById('pw_check').innerHTML='비밀번호가 일치합니다.'
+            document.getElementById('pw_check').style.color='blue';
+        } else {
+            document.getElementById('pw_check').innerHTML='비밀번호가 일치하지 않습니다.';
+            document.getElementById('pw_check').style.color='red';
+            document.getElementById('upassword').value='';
+            document.getElementById('upassword2').value='';
+        }
+        
+    }
+    
+}   // check_pw end
+
 $(document).ready(function(){  //모든 화면이 다 로딩이 되면 실행하는 영역
    console.log("document ready");
 
@@ -55,7 +97,40 @@ $(document).ready(function(){  //모든 화면이 다 로딩이 되면 실행하
     alert("로그인페이지로 이동합니다");
     window.location.href="${CP}/login";
     
-  });   // $("#cancel").on("click"
+  });   // $("#cancel") click
+  
+  $("#update").on("click", function(){
+	  
+	  $.ajax({
+	        type: "POST",
+	        url:"${CP}/update",
+	        asyn:"true",
+	        dataType:"html",
+	        data:{
+	        	uid: $("#uid").val(),
+	        	upassword: $("#upassword").val(),
+	        	uemail: $("#uemail").val()
+	        },
+	        success:function(data){//통신 성공
+	        	  let parsedJSON = JSON.parse(data);
+	        	  
+	        	  if("10" == parsedJSON.msgId) {
+	        		  alert(parsedJSON.msgContents);
+	        		  window.location.href="${CP}/login";
+	        	  }
+	        	  
+	        	  if("20" == parsedJSON.msgId) {
+                  alert(parsedJSON.msgContents);
+                  return;
+	             }
+	        	  
+	          },
+	          error:function(data){//실패시 처리
+	            console.log("error:"+data);
+	          }
+	      });  // ajax end
+	  
+  });   // $("#update") click
   
 });   //모든 화면이 다 로딩이 되면 실행하는 영역
 </script>
