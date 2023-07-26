@@ -8,6 +8,15 @@ import com.roadscanner.domain.MemberVO;
 
 public interface UserDao {
 	
+    /**
+     * 회원 탈퇴 처리
+     * @param user 회원 정보 (아이디와 회원 탈퇴 시 입력한 비밀번호가 담긴 객체)
+     * @return 1: 탈퇴 성공, 0: 비밀번호가 일치하지 않아 탈퇴 실패
+     * @throws SQLException
+     */
+    public int withdraw(MemberVO user) throws SQLException;
+
+	
 	/**
 	 * id를 사용하여 회원정보 출력
 	 * @param inVO

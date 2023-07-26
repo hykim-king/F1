@@ -1,19 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="CP" value="${pageContext.request.contextPath }"/>  
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"> 
-<!-- CSS -->
-<link  href="${CP}/resources/css/default.css" rel="stylesheet">
-<link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
-<script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
-<script src="${CP}/resources/js/jquery-3.7.0.js"></script>
-
-
- <script>
+    <meta charset="UTF-8"> 
+    <!-- CSS -->
+    <link href="${CP}/resources/css/default.css" rel="stylesheet">
+    <link href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
+    <script>
         $(document).ready(function() {
             console.log("$document.ready");
 
@@ -25,19 +22,28 @@
                 if (password === '') {
                     alert('비밀번호를 입력해주세요.');
                 } else {
-                    if (confirm('정말로 회원 탈퇴하시겠습니까?')) {
+                    if (confirm('탈퇴하겠습니까?')) {
+                        // 비밀번호를 서버로 전송하여 회원 탈퇴 처리 요청 전송
                         $.ajax({
                             type: "POST",
-                            url: "${C}/withdraw",
+                            url: "${CP}/withdraw", // 변경된 URL
                             dataType: "html",
                             data: {
-                            	password: password
+                                password: password
                             },
                             success: function(data) {
-                                // 탈퇴 결과에 따른 처리 (예: 팝업 메시지 띄우기 등)
-                                alert(data); // 서버에서 전달한 메시지를 팝업으로 띄웁니다.
+                                // 탈퇴 결과에 따른 처리
                                 if (data === "success") {
-                                    window.location.href = "${pageContext.request.contextPath}/main"; // 탈퇴 성공 시 메인 페이지로 이동하도록 수정해주세요.
+                                    // 탈퇴 성공 시 메시지 출력 및 로그인 페이지로 이동
+                                    alert("탈퇴 처리가 되었습니다.");
+                                    var loginPageUrl = "${CP}/login";
+                                    window.location.href = loginPageUrl;
+                                } else if (data === "incorrect") {
+                                    // 비밀번호가 일치하지 않을 경우 오류 메시지 출력
+                                    alert("비밀번호가 일치하지 않습니다.");
+                                } else {
+                                    // 기타 오류 처리
+                                    alert("오류가 발생했습니다. 다시 시도해주세요.");
                                 }
                             },
                             error: function(data) {

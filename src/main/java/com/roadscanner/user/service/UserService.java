@@ -83,5 +83,8 @@ public interface UserService {
 	 * @throws SQLException
 	 */
 	public int doChangeInfo(MemberVO user) throws SQLException;
+
+
+	public int doWithdraw(MemberVO user);
 	
 }

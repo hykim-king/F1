@@ -196,4 +196,18 @@ public class UserDaoImpl implements UserDao {
 		}
 		return outVO;
 	}
+
+	@Override
+	public int withdraw(MemberVO user) throws SQLException {
+	    int flag = 0;
+	    String statement = this.NAMESPACE + DOT + "withdraw";
+	    LOG.debug("┌────────────────────────────────────────────────────────┐");
+	    LOG.debug("│ statement " + statement);
+	    LOG.debug("│ param=\n" + user.toString());
+	    LOG.debug("└────────────────────────────────────────────────────────┘");
+	    flag = this.sqlSessionTemplate.delete(statement, user);
+
+	    return flag;
+	}
+	
 }

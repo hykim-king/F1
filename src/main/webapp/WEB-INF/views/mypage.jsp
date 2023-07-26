@@ -18,11 +18,11 @@
   <form>
     <div>
       <label>아이디</label>
-<<<<<<< HEAD
+
       <input type="text" readonly="readonly" value="${user.uid}">
-=======
+
       <input type="text" id="uid" readonly="readonly" value="${user.uid}">
->>>>>>> 4dcb4599c8db6e8a4d9779ad279c5773fa21a574
+
     </div>
     <div>
       <label>비밀번호 수정</label>
@@ -35,11 +35,11 @@
     </div>
     <div>
       <label>이메일</label>
-<<<<<<< HEAD
+
       <input type="text" readonly="readonly" value="${user.uemail}">
-=======
+
       <input type="text" id="uemail" readonly="readonly" value="${user.uemail}">
->>>>>>> 4dcb4599c8db6e8a4d9779ad279c5773fa21a574
+
     </div>
   </form>
   <form>
@@ -91,6 +91,13 @@ function check_pw() {
 
 $(document).ready(function(){  //모든 화면이 다 로딩이 되면 실행하는 영역
    console.log("document ready");
+   
+   $("#withdraw").on("click", function(){
+	      
+	    alert("탈퇴페이지 이동");
+	    window.location.href="${CP}/withdraw";
+	    
+	  });   // $("#withdraw") click
 
   $("#cancel").on("click", function(){
 	  

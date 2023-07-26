@@ -183,4 +183,15 @@ public class UserServiceImpl implements UserService {
 		return userDao.selectOneMypage(user);
 	}
 
+	@Override
+	public int doWithdraw(MemberVO user) {
+	    int checkStatus = 0;
+	    try {
+	        checkStatus = this.userDao.withdraw(user);
+	    } catch (SQLException e) {
+	        LOG.error("Error occurred while withdrawing user: " + e.getMessage());
+	    }
+	    return checkStatus;
+	}
+
 }
