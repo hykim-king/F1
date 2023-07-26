@@ -176,7 +176,7 @@
 	      <option value="reason2">결과 오류</option>
 	      <option value="reason3">이해하기 어려움</option>
 	    </select>
-	    <button type="submit">선택</button>
+	    <button id="submitButton">선택</button>
     </form>
   </div>
   
@@ -225,6 +225,8 @@
 	  const dislikeButton = document.getElementById('dislikeButton');
 	  const dislikeReason = document.getElementById('dislikeReason');
 	  const reasonForm = document.getElementById('reasonForm');
+	  const likeButton = document.getElementById('likeButton');
+	  const submitButton = document.getElementById('submitButton');
 	
 	  // dislikeButton에 클릭 이벤트 리스너 추가
 	  dislikeButton.addEventListener('click', function() {
@@ -232,6 +234,22 @@
 	  dislikeReason.style.display = dislikeReason.style.display === 'none' ? 'block' : 'none';
 	  reasonForm.style.display = dislikeReason.style.display;
 	  });
+	  
+	  // likeButton에 클릭 이벤트 리스너 추가
+	  likeButton.addEventListener('click', function () {
+		  // 페이지 새로고침
+		  window.location.reload();
+		  alert('소중한 의견 감사드립니다.');
+		});
+	  
+    // submitButton에 클릭 이벤트 리스너 추가
+    submitButton.addEventListener('click', function () {
+   	  // 폼 제출하고 새로고침
+   	  event.preventDefault();
+   	  reasonForm.submit();
+   	  alert('소중한 의견 감사드립니다.');
+   	  window.location.reload();
+    });
 	  // 선택 상자 End-----------------------------------------------------------------
 	  
 	  // "Run" 버튼 클릭 시 호출되는 함수
