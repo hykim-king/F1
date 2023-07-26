@@ -7,10 +7,12 @@
 <head>
 <meta charset="UTF-8"> 
 <!-- CSS -->
-<link  href="${CP}/resources/css/default.css" rel="stylesheet">
+<link  rel="stylesheet" href="${CP}/resources/css/default.css" >
 <link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
 <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
+
+
 
 
 <title>메인페이지?</title>
@@ -18,16 +20,22 @@
 <body>
     <div class = "roadscannercontainer">  
         <div class = loginbox>
-            <div>                   
-	          <input class="loginidpwbtn" type="text" id="id" name="id" placeholder="아이디">
-	          <label>
-	          <img class= "icon" src="${CP}/resources/img/usericon.png">
-	          </label><p/>
-	          <input class="loginidpwbtn" type="password" id="pw" name= "pw" placeholder="비밀번호"><p/>
-	          <button class="loginidpwbtn" type="button" id="doLogin" name="doLogin" >로그인</button>
+            <div class= "loginboxdiv">
+              <input class= "icon" type="image" src="${CP}/resources/img/passwordicon.png" readonly="readonly" >
+              <input class="loginidpwbtn" type="text" id="id" name="id" placeholder="아이디"><p/>
 	        </div>
-	          <a href="${CP}/findIdPw">회원정보 찾기</a>
-	          <a href="${CP}/registerpage">회원가입</a>
+	         
+	        <div class= "loginboxdiv" style="margin-top: 20px">
+	          <input class= "icon" type="image" src="${CP}/resources/img/passwordicon.png" readonly="readonly"> 
+	          <input class="loginidpwbtn" type="password" id="pw" name= "pw" placeholder="비밀번호"><p/>
+	        </div>
+	        
+	          <button  type="button" class="loginbtn" id="doLogin" name="doLogin" >로그인</button><p/>
+            
+            <div style="width: 510px">
+	          <button type="button" class="anotherbtn" onclick=" window.location.href='${CP}/findIdPw';"></button>
+	          <button type="button" class="anotherbtn" onclick=" window.location.href='${CP}/registerpage';"></button>
+            </div>
 	    </div>  <!-- class = loginbox  -->
     </div>
 

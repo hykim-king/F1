@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 table {
 	margin: auto;
 }
@@ -14,18 +13,42 @@ table {
 .loginbox{
 	width: 100%;
     margin-top: 150px;
+}
+
+.loginboxdiv{
+	width:510px;
+  display: flex;
+  margin : auto;
+  border: 1px solid black;
     
 }
 
 .icon{
-	height : 60px;
-     width : 60px;
-    
+  width: 60px;
+  height: 60px;
+  background-color : #EDEDED;
 }
 
 .loginidpwbtn{
+	border : none;
+	padding : 0px 0px;
     width: 450px;
-    height: 60px; 
+    height: 60px;
+    
 }
 
+.loginbtn{
+	margin-top: 20px;
+    border : none;
+    padding : 0px 0px;
+    width: 510px;
+    height: 60px;
+    background-color: #5E5E5E;
+}
+
+.anotherbtn{
+    border : none;
+    width: 120px;
+    height: 45px;
+}
 
