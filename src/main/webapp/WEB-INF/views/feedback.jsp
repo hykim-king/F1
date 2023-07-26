@@ -1,23 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="CP" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="${CP}/resources/js/jquery-3.7.0.js"></script>
 <title>Feedback</title>
 <style>
-  .barchart {
-    width: 60%
-  }
-  .linechart {
-    width: 60%
-  }
-  .feedback_table {
-    width: 60%;
-  }
-  table, th, td {
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    text-align: center;
-  }
+	.barchart {
+	  width: 60%
+	}
+	.linechart {
+	  width: 60%
+	}
+	.feedback_table {
+	  width: 60%;
+	}
+	table, th, td {
+	  border: 1px solid #ccc;
+	  border-collapse: collapse;
+	  text-align: center;
+	}
 </style>
 </head>
 <body>
@@ -64,7 +71,7 @@ new Chart(document.getElementById("feedback_barchart"), {
         data: [20, 15, 8],
         label: 'feedback',
         backgroundColor: [
-        	'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
           'rgba(255, 206, 86, 0.2)',
         ],
@@ -85,7 +92,7 @@ new Chart(document.getElementById("feedback_barchart"), {
       },
       scales: {
         y: {
-        	beginAtZero: true,
+          beginAtZero: true,
           display: true,
           ticks: {
             callback: function(value) {
