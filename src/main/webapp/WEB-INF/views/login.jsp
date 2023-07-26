@@ -77,12 +77,12 @@
                 
                 if("1"==paredJSON.msgId || "10"==paredJSON.msgId){
                   alert(paredJSON.msgContents);  // javascript 메시지 다이얼 로그
-                  $("#userId").focus();          // jquery로 포커스를 이동시킨다.
+                  $("#id").focus();          // jquery로 포커스를 이동시킨다.
                   return;
                 }
                 if("2"==paredJSON.msgId || "20"==paredJSON.msgId){
                   alert(paredJSON.msgContents);
-                  $("#passwd").focus();
+                  $("#pw").focus();
                   return;
                 }
                 if("30"==paredJSON.msgId){//로그인 성공

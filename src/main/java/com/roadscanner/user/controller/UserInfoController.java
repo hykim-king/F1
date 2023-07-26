@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+import com.roadscanner.cmn.MessageVO;
 import com.roadscanner.domain.MemberVO;
 import com.roadscanner.user.service.UserService;
 
@@ -29,6 +32,32 @@ public class UserInfoController {
 		
 		return "mypage";
 		
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String doChangeInfo(MemberVO member) throws Exception {
+		System.out.println("┌────────────────────────────────────────────────────────┐");
+        System.out.println("│ doChangeInfo()                                   │");
+        System.out.println("└────────────────────────────────────────────────────────┘");
+        
+        int flag = this.userService.doChangeInfo(member);
+        
+        String jsonString = "";
+        MessageVO message = new MessageVO();
+        
+        if(1 == flag) {
+        	message.setMsgId("10");
+        	message.setMsgContents("비빌번호를 수정했습니다");
+        } else {
+        	message.setMsgId("20");
+        	message.setMsgContents("회원정보 수정에 실패했습니다.");
+        }
+        
+       jsonString = new Gson().toJson(message);
+       
+       return jsonString;
+        
 	}
 	
 }
