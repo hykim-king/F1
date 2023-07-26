@@ -23,4 +23,9 @@ public class BoardController {
     	return "/board/list_admin";
     }
     
+    @GetMapping("/admin/write")
+    public String adminPostWrite() {
+        return "/board/admin-post-write";
+        
+    }
 }
