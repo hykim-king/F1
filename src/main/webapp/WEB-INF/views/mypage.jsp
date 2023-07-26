@@ -7,45 +7,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- CSS -->
+<link rel="stylesheet"  href="resources/css/mypage.css">
 <link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
 <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
 <title>RoadScanner mypage test</title>
 </head>
 <body>
-  <h2>${user.uid}의 마이페이지</h2>
-  <form>
-    <div>
-      <label>아이디</label>
-      <input type="text" id="uid" readonly="readonly" value="${user.uid}">
-    </div>
-    <div>
-      <label>비밀번호 수정</label>
-      <input type="password" id="upassword" placeholder="문자, 숫자, 특수문자 포함 8~20글자)" >
-    </div>
-    <div>
-      <label>비밀번호 확인</label><br/>
-      <input type="password" id="upassword2" placeholder="비밀번호 재입력" onchange="check_pw()"><br/>
-      <label id="pw_check"></label>
-    </div>
-    <div>
-      <label>이메일</label>
-      <input type="text" id="uemail" readonly="readonly" value="${user.uemail}">
-    </div>
-  </form>
-  <form>
-    <div>
-      <input type="button" id="update" value="수정">
-      <input type="button" id="cancel" value="취소">
-    </div>
-  </form>
-  <div>
-      <input type="button" id="myQnAboard" value="내 QnA보기">
-  </div>
-  <div>
-      <input type="button" id="withdraw" value="탈퇴">
-  </div>
+  <h2 style="text-align: center;">${user.uid}의 마이페이지</h2>
+	  <div id="container">
+		  <form>
+		    <div id="div_id">
+		      <label>아이디</label><br/>
+		      <input class="form-control" type="text" id="uid" readonly="readonly" value="${user.uid}">
+		    </div>
+		    <div id="div_pw">
+		      <label>비밀번호 수정</label><br/>
+		      <input class="form-control" type="password" id="upassword" placeholder="문자, 숫자, 특수문자 포함 8~20글자)" >
+		    </div>
+		    <div id="div_pw2">
+		      <label>비밀번호 확인</label>
+		      <label id="pw_check"></label><br/>
+		      <input class="form-control" type="password" id="upassword2" placeholder="비밀번호 재입력" onchange="check_pw()">
+		    </div>
+		    <div id="div_email">
+		      <label>이메일</label><br/>
+		      <input class="form-control" type="text" id="uemail" readonly="readonly" value="${user.uemail}">
+		    </div>
+		  </form>
+		</div>
+	  <div id="div_button01">
+	    <input type="button" id="update" value="수정">
+	    <input type="button" id="cancel" value="취소">
+	  </div>
+	  <div id="div_button02">
+	      <input type="button" id="myQnAboard" value="내 QnA보기">
+	  </div>
+	  <div id="div_button03">
+	      <input type="button" id="withdraw" value="탈퇴">
+	  </div>
 </body>
 <script>
 function check_pw() {
