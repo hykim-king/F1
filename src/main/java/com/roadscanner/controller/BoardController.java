@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
+	
+	@GetMapping("/")
+	public String listUserView() {
+		return "/board/list_user";
+	}
 
     @GetMapping("/write")
     public String writeView() {

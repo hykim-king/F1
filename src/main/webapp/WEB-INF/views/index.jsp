@@ -9,7 +9,7 @@
 <div>
     게시판
     <ul>
-        <li><a href="#">전체게시물 확인하기</a></li>
+        <li><a href="/board/">전체게시물 확인하기</a></li>
         <li><a href="/board/write">게시물 상세페이지</a></li>
         <li><a href="#">글쓰기 상세페이지</a></li>
     </ul>
