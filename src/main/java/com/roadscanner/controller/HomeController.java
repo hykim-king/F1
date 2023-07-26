@@ -24,6 +24,11 @@ public class HomeController {
     public String test2() {
         return "test2";
     }
+    
+    @RequestMapping("/withdraw")
+    public String withdraw() {
+        return "withdraw";
+    }
 
 
 }
