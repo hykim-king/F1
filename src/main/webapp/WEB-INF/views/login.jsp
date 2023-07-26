@@ -66,8 +66,8 @@
             /* asyn:"true", */
             dataType:"html",
             data:{
-              id: $("#id").val(),
-              pw: $("#pw").val()
+              uid: $("#id").val(),
+              upassword: $("#pw").val()
             },
             success:function(data){//통신 성공
                 //console.log("success data:"+data);

@@ -35,19 +35,6 @@
 	               <label id="pw_check"></label>
 	             </li>
 	             <li>
-	               <label>이름</label><br/>
-	               <input type="text" name="name_form" id="name_form" placeholder="이름을 입력해주세요 (한글 3~20글자)" onchange="check_name()">
-	             </li>
-	             <li>
-	               <label>성별</label>
-	               <input type="radio" name="sex_form" id="sex_form" value="M" style="margin-left: 100px;"><label>남자</label>
-	               <input type="radio" name="sex_form" id="sex_form" value="F" style="margin-left: 40px;"><label>여자</label>
-	             </li>
-	             <li>
-	               <label>전화번호</label><br/>
-	               <input type="tel" name="phone_num" id="phone_num" onchange="check_phone()" placeholder="휴대폰 번호 입력('-'포함 13자리 입력)">
-	             </li>
-	             <li>
 	               <label>이메일 주소</label><br/>
 	               <input type="email" name="email_front" id="email_front" onkeyup="check_email(event)" placeholder="이메일 주소">
 	               <label>@</label>
@@ -70,182 +57,8 @@
 	               </datalist>
 	               <input type="button" id="emailDulpCheck" value="중복확인">
 	             </li>
-	             <li>
-	               <label>생년월일</label><br/>
-	               <input id="birth_year" name="year" type="text" list="year" placeholder="년도">
-	               <datalist id="year">
-	                 <option value="2023"></option>
-	                 <option value="2022"></option>
-	                 <option value="2021"></option>
-	                 <option value="2020"></option>
-	                 <option value="2019"></option>
-	                 <option value="2018"></option>
-	                 <option value="2017"></option>
-	                 <option value="2016"></option>
-	                 <option value="2015"></option>
-	                 <option value="2014"></option>
-	                 <option value="2013"></option>
-	                 <option value="2012"></option>
-	                 <option value="2011"></option>
-	                 <option value="2010"></option>
-	                 <option value="2009"></option>
-	                 <option value="2008"></option>
-	                 <option value="2007"></option>
-	                 <option value="2006"></option>
-	                 <option value="2005"></option>
-	                 <option value="2004"></option>
-	                 <option value="2003"></option>
-	                 <option value="2002"></option>
-	                 <option value="2001"></option>
-	                 <option value="2000"></option>
-	                 <option value="1999"></option>
-	                 <option value="1998"></option>
-	                 <option value="1997"></option>
-	                 <option value="1996"></option>
-	                 <option value="1995"></option>
-	                 <option value="1994"></option>
-	                 <option value="1993"></option>
-	                 <option value="1992"></option>
-	                 <option value="1991"></option>
-	                 <option value="1990"></option>
-	                 <option value="1989"></option>
-	                 <option value="1988"></option>
-	                 <option value="1987"></option>
-	                 <option value="1986"></option>
-	                 <option value="1985"></option>
-	                 <option value="1984"></option>
-	                 <option value="1983"></option>
-	                 <option value="1982"></option>
-	                 <option value="1981"></option>
-	                 <option value="1980"></option>
-	                 <option value="1979"></option>
-	                 <option value="1978"></option>
-	                 <option value="1977"></option>
-	                 <option value="1976"></option>
-	                 <option value="1975"></option>
-	                 <option value="1974"></option>
-	                 <option value="1973"></option>
-	                 <option value="1972"></option>
-	                 <option value="1971"></option>
-	                 <option value="1970"></option>
-	                 <option value="1969"></option>
-	                 <option value="1968"></option>
-	                 <option value="1967"></option>
-	                 <option value="1966"></option>
-	                 <option value="1965"></option>
-	                 <option value="1964"></option>
-	                 <option value="1963"></option>
-	                 <option value="1962"></option>
-	                 <option value="1961"></option>
-	                 <option value="1960"></option>
-	                 <option value="1959"></option>
-	                 <option value="1958"></option>
-	                 <option value="1957"></option>
-	                 <option value="1956"></option>
-	                 <option value="1955"></option>
-	                 <option value="1954"></option>
-	                 <option value="1953"></option>
-	                 <option value="1952"></option>
-	                 <option value="1951"></option>
-	                 <option value="1950"></option>
-	                 <option value="1949"></option>
-	                 <option value="1948"></option>
-	                 <option value="1947"></option>
-	                 <option value="1946"></option>
-	                 <option value="1945"></option>
-	                 <option value="1944"></option>
-	                 <option value="1943"></option>
-	                 <option value="1942"></option>
-	                 <option value="1941"></option>
-	                 <option value="1940"></option>
-	                 <option value="1939"></option>
-	                 <option value="1938"></option>
-	                 <option value="1937"></option>
-	                 <option value="1936"></option>
-	                 <option value="1935"></option>
-	                 <option value="1934"></option>
-	                 <option value="1933"></option>
-	                 <option value="1932"></option>
-	                 <option value="1931"></option>
-	                 <option value="1930"></option>
-	                 <option value="1929"></option>
-	                 <option value="1928"></option>
-	                 <option value="1927"></option>
-	                 <option value="1926"></option>
-	                 <option value="1925"></option>
-	                 <option value="1924"></option>
-	                 <option value="1923"></option>
-	                 <option value="1922"></option>
-	                 <option value="1921"></option>
-	                 <option value="1920"></option>
-	                 <option value="1919"></option>
-	                 <option value="1918"></option>
-	                 <option value="1917"></option>
-	                 <option value="1916"></option>
-	                 <option value="1915"></option>
-	                 <option value="1914"></option>
-	                 <option value="1913"></option>
-	                 <option value="1912"></option>
-	                 <option value="1911"></option>
-	                 <option value="1910"></option>                  
-	               </datalist>
-	               <input id="birth_month" name="month" type="text" list="month" placeholder="월">
-	               <datalist id="month">
-	                 <option value="12"></option>
-	                 <option value="11"></option>
-	                 <option value="10"></option>
-	                 <option value="09"></option>
-	                 <option value="08"></option>
-	                 <option value="07"></option>
-	                 <option value="06"></option>
-	                 <option value="05"></option>
-	                 <option value="04"></option>
-	                 <option value="03"></option>
-	                 <option value="02"></option>
-	                 <option value="01"></option> 
-	               </datalist>
-	               <input id="birth_day" name="day" type="text" list="day" placeholder="일">
-	               <datalist id="day">
-	                 <option value="31"></option>
-	                 <option value="30"></option>
-	                 <option value="29"></option>
-	                 <option value="28"></option>
-	                 <option value="27"></option>
-	                 <option value="26"></option>
-	                 <option value="25"></option>
-	                 <option value="24"></option>
-	                 <option value="23"></option>
-	                 <option value="22"></option>
-	                 <option value="21"></option>
-	                 <option value="20"></option>
-	                 <option value="19"></option>
-	                 <option value="18"></option>
-	                 <option value="17"></option>
-	                 <option value="16"></option>
-	                 <option value="15"></option>
-	                 <option value="14"></option>
-	                 <option value="13"></option>
-	                 <option value="12"></option>
-	                 <option value="11"></option>
-	                 <option value="10"></option>
-	                 <option value="09"></option>
-	                 <option value="08"></option>
-	                 <option value="07"></option>
-	                 <option value="06"></option>
-	                 <option value="05"></option>
-	                 <option value="04"></option>
-	                 <option value="03"></option>
-	                 <option value="02"></option>
-	                 <option value="01"></option>
-	               </datalist>
-	             </li>
-	             <li>
-	               <label>주소</label><br/>
-	               <input type="text" id="post_code" name="post_code" placeholder="우편번호를 검색하세요" readonly>
-	               <input type="button" id="btn" value="우편번호">
-	               <input type="text" id="address" name="address" placeholder="기본주소" readonly>
-	               <input type="text" id="rest_address" name="rest_address" placeholder="나머지주소">
-	             </li>
+	             
+	             
 	           </ul>
 	         </fieldset>
 	       <div>
@@ -253,100 +66,22 @@
 	        <input type="button" id="noneRegister" value="취소" onclick="firstForm()">
        </div>
 	       <div>
-	            <input type="button" onclick="window.location.href='${CP}/';" value="로그인페이지">
-	            <input type="button" onclick="window.location.href='${CP}/login';" value="홈페이지">	           
+	            <input type="button" onclick="window.location.href='${CP}/login';" value="로그인페이지">
+	            <input type="button" onclick="window.location.href='${CP}/';" value="홈페이지">	           
 	       </div>
      </form>
    <form method="POST" name="register_form">
-         <input type="hidden" name="grade" id="grade" value="20">
-         <input type="hidden" name="name" id="name">
+         <input type="hidden" name="grade" id="grade" value="1">
          <input type="hidden" name="id" id="id">
          <input type="hidden" name="pw" id="pw">
-         <input type="hidden" name="tel" id="tel">
-         <input type="hidden" name="birth" id="birth">
-         <input type="hidden" name="sex" id="sex">
-         <input type="hidden" name="post_num" id="post_num">
-         <input type="hidden" name="n_addr" id="n_addr">
-         <input type="hidden" name="o_addr" id="o_addr">
-         <input type="hidden" name="rest_addr" id="rest_addr">
          <input type="hidden" name="email" id="email">
-         <input type="hidden" name="del" id="del" value="0">
-         
-         <input type="hidden" id="addressType"> <!-- 주소 구분 -->
      </form>
 </div>    
 </body>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
     <script>
-        const btn = document.querySelector("#btn");
-        btn.addEventListener("click",()=>{
-          new daum.Postcode({
-                oncomplete: function(data) {
-                  let selectAddr = '';
-                  let unSelectAddr = '';
-                  let extraAddr = '';
-                  
-                  let reg_NewAddr = '';
-                  
-                  if(data.userSelectedType === 'R') {
-                      selectAddr = data.roadAddress;
-                      
-                      reg_NewAddr = data.roadAddress;
-                      unSelectAddr = data.jibunAddress;
-                  } else {
-                      selectAddr = data.jibunAddress;
-                      
-                      reg_NewAddr = data.roadAddress;
-                      unSelectAddr = data.jibunAddress;
-                  }
-                  
-                  if(data.userSelectedType === 'R') {
-                    if(data.bname !== '') {
-                      extraAddr += data.bname;
-                    }
-                    if(data. buildingName !== '') {
-                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                    }
-                    selectAddr += (extraAddr !== '' ? ' (' + extraAddr + ') ' : '');
-                    reg_NewAddr += (extraAddr !== '' ? ' (' + extraAddr + ') ' : '');
-                  }
-                  
-                  if(data.userSelectedType === 'J') {
-                    if(data.bname !== '') {
-                      extraAddr += data.bname;
-                    }
-                    if(data. buildingName !== '') {
-                      extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                    }
-                    reg_NewAddr += (extraAddr !== '' ? ' (' + extraAddr + ') ' : '');
-                  }  
-                  
-                  
-                  if(data.userSelectedType === 'R') {
-                      
-                      document.membership.address.value = selectAddr;
-                      document.register_form.o_addr.value = data.jibunAddress;           
-                      document.register_form.n_addr.value = data.roadAddress;
-                      
-                  } else {
-                      
-                      document.membership.address.value = selectAddr;
-                      document.register_form.o_addr.value = data.jibunAddress;           
-                      document.register_form.n_addr.value = data.roadAddress;
-                  }
-
-                  document.register_form.addressType.value = data.userSelectedType; //추가  
-                      
-                  document.membership.post_code.value = data.zonecode;
-                  document.membership.rest_address.focus();
-                  
-                }
-          
-            }).open();
-          
-        });
-    
+       
         function check_pw() {
             var pw = document.getElementById('pw_form').value;
             var num = pw.search(/[0-9]/g);
@@ -388,26 +123,6 @@
             }
             
           }
-
-    
-        function check_name() {
-          
-          var name_str = document.getElementById('name_form').value;
-          var hangul = /^[가-힣]+$/;
-  
-          if(name_str.length < 3 || name_str.length > 20) {
-             window.alert('이름은 한글 3글자 이상, 20글자 이하만 가능합니다');
-             document.getElementById('name_form').value='';
-          } else if(name_str.search(/\s/) != -1) {
-             window.alert('이름은 공백 없이 입력 가능합니다');
-             document.getElementById('name_form').value='';
-          } else if(hangul.test(name_str) == false) {
-             window.alert('이름은 한글만 입력 가능합니다');
-             document.getElementById('name_form').value='';
-          
-        }
-      
-      } 
     
       function check_email(event) {
          const hangul = /[^0-9a-zA-Z]/g;
@@ -417,17 +132,7 @@
            ele.value = ele.value.replace(hangul,'');
          }
        }
-    
-      function check_phone() {
-        var phone_num_str = document.getElementById('phone_num').value;
-        var regPhone = /^01([0])-([0-9]{4})-([0-9]{4})$/;
-        
-        if(regPhone.test(phone_num_str) == false) {
-              window.alert('전화번호 양식에 맞춰서 입력해주세요 ex)010-0000-0000');
-              document.getElementById('phone_num').value=''; 
-           }
-        
-      }        
+       
       
       /* 취소 버튼 클릭 시 첫 화면으로 이동 / href="메인페이지 주소 입력하기" */
       /* function goFirstForm() {
@@ -439,43 +144,24 @@
       
         $("#noneRegister").on("click", function(){
             alert("회원가입을 취소했습니다");
-            window.location.href="${CP}/main.do";
+            window.location.href="${CP}/registerpage";
             
         });
       
         $("#register").on("click", function(){
             console.log("register ready");
-            
-            let registerName = document.getElementById('name_form').value;
+
             let registerId = document.getElementById('id_form').value;
             let registerPw = document.getElementById('pw2_form').value;
-            let registerTel = document.getElementById('phone_num').value;
-            let registerBirth = document.getElementById('birth_year').value+document.getElementById('birth_month').value+document.getElementById('birth_day').value;
-            let registerSex = $('input:radio[name=sex_form]:checked').val();
-            let registerPostNum = document.getElementById('post_code').value;       
-            let registerRestAddr = document.getElementById('rest_address').value;
             let registerEmail = document.getElementById('email_front').value+"@"+$('[name="email_back"]').val();
             
-            let addressType_let = document.getElementById("addressType").value;    //추가  
             
-            
-            document.register_form.name.value = registerName;
             document.register_form.id.value = registerId;
             document.register_form.pw.value = registerPw;
-            document.register_form.tel.value = registerTel;
-            document.register_form.birth.value = registerBirth;
-            document.register_form.sex.value = registerSex;
-            document.register_form.post_num.value = registerPostNum;        
-            document.register_form.rest_addr.value = registerRestAddr;
             document.register_form.email.value = registerEmail;
             
-        document.register_form.addressType.value = addressType_let; //추가  
             
-            if("" == document.getElementById('name_form').value) {
-                alert("이름을 입력하세요");
-                return false;
-            }
-            
+         
             if("" == document.getElementById('id_form').value) {
                 alert("아이디를 입력하세요");
                 return false;
@@ -490,21 +176,7 @@
                 alert("비밀번호를 입력하세요");
                 return false;
             }
-            
-            if("" == document.getElementById('birth_year').value || "" == document.getElementById('birth_month').value || "" == document.getElementById('birth_day').value) {
-                alert("생년월일을 입력하세요");
-                return false;
-            }
-            
-            if(null == registerSex) {
-                alert("성별을 입력하세요");
-                return false;
-            }
-            
-            if("" == document.getElementById('address').value || "" == document.getElementById('rest_address').value) {
-                alert("주소를 입력하세요");
-                return false;
-            }
+           
             
             
             if("" == document.getElementById('email_front').value || "" == $('[name="email_back"]').val()) {
@@ -512,30 +184,18 @@
                 return false;
             }
             
-            if("" == document.getElementById('phone_num').value) {
-                alert("휴대폰 번호를 입력하세요");
-                return false;
-            }
-                    
+           
             $.ajax({
                 type: "POST",
               url:"${CP}/register",
                 /* asyn:"true", */
                 dataType:"html",
                 data:{
-                    grade: $("#grade").val(),
-                    name: $("#name").val(),
-                    id: $("#id").val(),
-                    pw: $("#pw").val(),
-                    tel: $("#tel").val(),
-                    birth: $("#birth").val(),
-                    sex: $("#sex").val(),
-                    postNum: $("#post_num").val(),
-                    nAddr: $("#n_addr").val(),
-                    oAddr: $("#o_addr").val(),
-                    restAddr: $("#addressType").val()+"_"+$("#rest_addr").val(),
-                    email: $("#email").val(),
-                    del: $("#del").val()
+                	ugrade: $("#grade").val(),
+                    uid: $("#id").val(),
+                    upassword: $("#pw").val(),
+                    uemail: $("#email").val()
+                   
                 },
                 success:function(data){//통신 성공
                     //console.log("success data:"+data);
@@ -587,7 +247,7 @@
                 /* asyn:"true", */
                 dataType:"html",
                 data:{
-                    id: $("#id_form").val()
+                	uid: $("#id_form").val()
                 },
                 success:function(data){//통신 성공
                     //console.log("success data:"+data);
@@ -645,7 +305,7 @@
               /* asyn:"true", */
               dataType:"html",
               data:{
-                  email: emial_str
+            	  uemail: emial_str
               },
               success:function(data){//통신 성공
                   //console.log("success data:"+data);

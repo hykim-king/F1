@@ -54,7 +54,7 @@
                 dataType:"html",
                 data:{
                   
-                    email: $("#email").val()
+                    uemail: $("#email").val()
                 },
                 success:function(data){//통신 성공
                     //console.log("success data:"+data);
@@ -70,8 +70,8 @@
                       alert(paredJSON.msgContents);
                       const id = paredJSON.msgContents.split(' ');
                       console.log("id:"+id[1]);
-                      $('input[name=userId]').attr('value',id[1]);
-                      $('input[name=email2]').attr('value',$('#email').val());
+                      $('#userId').attr('value',id[1]);
+                      $('#email2').attr('value',$('#email').val());
                       $('#email').val('');
                       
                     }
@@ -105,8 +105,8 @@
                   /* asyn:"true", */
                   dataType:"html",
                   data:{
-                    id   : $("#userId").val(),
-                    email : $("#email2").val(),
+                    uid   : $("#userId").val(),
+                    uemail : $("#email2").val(),
                     
                   },
                   success:function(data){//통신 성공
