@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BoardController {
 	
 	@GetMapping("/")
-	public String listUserView() {
+	public String boardListView() {
 		return "/board/list_user";
 	}
 
@@ -17,4 +17,10 @@ public class BoardController {
     public String writeView() {
         return "/board/write";
     }
+    
+    @GetMapping("/admin")
+    public String boardAdminView() {
+    	return "/board/list_admin";
+    }
+    
 }
