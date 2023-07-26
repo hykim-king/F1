@@ -17,23 +17,18 @@
 </head>
 <body>
     <div class = "roadscannercontainer">  
-        <div>
-           <table>
-		       <tr>
-		          <td><input class="idpw" type="text" id="id" name="id" placeholder="아이디"></td>
-		          <td rowspan="2"><button type="button" id="doLogin" name="doLogin" style="height: 52px;">로그인</button></td>
-		       </tr>
-		       <tr>
-		          <td><input class="idpw" type="password" id="pw" name= "pw" placeholder="비밀번호"></td>
-		       </tr>
-		       <tr>
-		          <td><a href="${CP}/findIdPw">회원정보 찾기</a></td>
-		       </tr>
-		         <tr>
-                  <td><a href="${CP}/registerpage">회원가입</a></td>
-               </tr>
-		   </table>
-	    </div>
+        <div class = loginbox>
+            <div>                   
+	          <input class="loginidpwbtn" type="text" id="id" name="id" placeholder="아이디">
+	          <label>
+	          <img class= "icon" src="${CP}/resources/img/usericon.png">
+	          </label><p/>
+	          <input class="loginidpwbtn" type="password" id="pw" name= "pw" placeholder="비밀번호"><p/>
+	          <button class="loginidpwbtn" type="button" id="doLogin" name="doLogin" >로그인</button>
+	        </div>
+	          <a href="${CP}/findIdPw">회원정보 찾기</a>
+	          <a href="${CP}/registerpage">회원가입</a>
+	    </div>  <!-- class = loginbox  -->
     </div>
 
 </body>
