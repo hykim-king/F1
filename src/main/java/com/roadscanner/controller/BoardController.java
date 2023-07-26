@@ -18,6 +18,11 @@ public class BoardController {
         return "/board/write";
     }
     
+    @GetMapping("/detail")
+    public String detailView() {
+    	return "/board/post_detail";
+    }
+    
     @GetMapping("/admin")
     public String boardAdminView() {
     	return "/board/list_admin";

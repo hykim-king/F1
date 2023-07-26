@@ -10,8 +10,8 @@
     게시판
     <ul>
         <li><a href="/board/">전체게시물 확인하기</a></li>
-        <li><a href="/board/write">게시물 상세페이지</a></li>
-        <li><a href="#">글쓰기 상세페이지</a></li>
+        <li><a href="/board/detail">게시물 상세페이지</a></li>
+        <li><a href="/board/write">글쓰기 상세페이지</a></li>
         <li><a href="/board/admin">관리자 전용 게시판</a> <!-- 일단 관리자 모드 고려 x, 임시 링크 설정-->
     </ul>
     관리자
