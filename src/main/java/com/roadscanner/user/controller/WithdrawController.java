@@ -1,5 +1,7 @@
 package com.roadscanner.user.controller;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,10 +35,11 @@ public class WithdrawController {
      * 회원 탈퇴 처리
      * @param user 회원 정보 (비밀번호가 담긴 객체)
      * @return JSON 형태의 응답 데이터
+     * @throws SQLException 
      */
-    @RequestMapping(value = "/withdrawProcess", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/withdraw", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
-    public String withdraw(MemberVO user) {
+    public String withdraw(MemberVO user) throws SQLException {
         System.out.println("┌────────────────────────────────────────────────────────┐");
         System.out.println("│ withdraw()                                            │");
         System.out.println("└────────────────────────────────────────────────────────┘");
@@ -44,7 +47,7 @@ public class WithdrawController {
         String jsonString = "";
         MessageVO message = new MessageVO();
         
-        // UserService에 비밀번호가 일치하는지 확인하는 메서드가 있다고 가정하고 사용합니다.
+        // UserService에 비밀번호가 일치하는지 확인하는 메서드가 있다
         int withdrawStatus = userService.doWithdraw(user);
         
         if (withdrawStatus == 1) {

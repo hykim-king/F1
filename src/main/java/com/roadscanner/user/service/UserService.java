@@ -85,6 +85,6 @@ public interface UserService {
 	public int doChangeInfo(MemberVO user) throws SQLException;
 
 
-	public int doWithdraw(MemberVO user);
+	public int doWithdraw(MemberVO user) throws SQLException;
 	
 }
