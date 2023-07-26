@@ -20,10 +20,10 @@
         <li><a href="/board/admin/write">글쓰기 상세페이지</a></li>
     </ul>
 </div>
-<ul>
-    <li>파일업로드</li>
-    <li>로그인</li>   
-</ul>
-    <input type="text" value="push test">
+	<ul>
+	    <li>파일업로드</li>
+	    <li><a href = "/login">로그인</a></li>   
+	</ul>
+	    <input type="text" value="push test" readonly="readonly">
 </body>
 </html>

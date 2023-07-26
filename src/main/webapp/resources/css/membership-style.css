@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR&display=swap');  
+/* font-family: 'Nanum Pen Script', cursive;
+   font-family: 'Noto Sans KR', sans-serif; */
+
+		#container {
+		  width : 600px;
+		  margin : 20px auto;
+		  font-family: 'Nanum Pen Script', cursive;
+		  font-family: 'Noto Sans KR', sans-serif;
+         }
+         
+         ul {
+           list-style: none;
+         }
+         
+         li {
+           font-weight: bold;
+           margin: 20px 0px;
+         }  
+         
+         #id_form, #pw_form, #pw2_form, #name_form, #phone_num {
+           font-size: 12pt;
+           width: 400px;
+           height: 35px;
+         }
+         
+         #idDulpCheck {
+           background-color: #40c1fc;
+           color: #ffffff;
+           border:1px solid #40c1fc;
+           width: 80px;
+           height: 40px;
+           font-family: 'Nanum Pen Script', cursive;
+           font-family: 'Noto Sans KR', sans-serif;
+         }
+         
+         input[type="email"] {
+           font-size: 12pt;
+           width: 185px;
+           height: 35px;
+         }
+                        
+         #birth_year {
+           font-size: 12pt;
+           width: 125px;
+           height: 35px;
+         }
+
+         #birth_month, #birth_day {
+           font-size: 12pt;
+           width: 126px;
+           height: 35px;
+         }
+         
+         #post_code {
+           font-size: 12pt;
+           width: 180px;
+           height: 35px;
+         }
+         
+         #address, #rest_address {
+           font-size: 12pt;
+           width: 400px;
+           height: 35px;
+           margin: 3px 0px 0px 0px;
+         }
+         
+         #btn {
+           background-color: #fff;
+           border: 0px solid black;
+           text-decoration: underline;
+         }
+         
+         #register {
+           font-size: 12pt;
+           text-align:center;
+           width:150px;
+           height:40px;      
+           background-color:#40c1fc;
+           color: #ffffff;
+           border:0px solid #40c1fc;
+           margin-left: 110px;
+           font-family: 'Nanum Pen Script', cursive;
+           font-family: 'Noto Sans KR', sans-serif;
+         }
+         
+         #noneRegister {
+           font-size: 12pt;
+           text-align:center;
+           width:150px;
+           height:40px;      
+           background-color:#ffbd24;
+           color: #ffffff;
+           border:0px solid #ffbd24;
+           font-family: 'Nanum Pen Script', cursive;
+           font-family: 'Noto Sans KR', sans-serif;
+         }          
+           
