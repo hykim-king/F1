@@ -178,6 +178,13 @@ $RECYCLE.BIN/
 /*.project
 /.metadata
 
+<<<<<<< HEAD
 # End of https://www.toptal.com/developers/gitignore/api/intellij,java,windows,macos
 Servers/
+=======
+# Access Code #
+.properties
+
+# End of https://www.toptal.com/developers/gitignore/api/intellij,java,windows,macos
+>>>>>>> ch/fileupload
 *.properties
