@@ -63,13 +63,13 @@ public class LoginController {
         MessageVO message = new MessageVO();
         
         // (1 : id 미입력)
-        if(null == user.getId() || "".equals(user.getId())) {
+        if(null == user.getUid() || "".equals(user.getUid())) {
             message.setMsgId("1");
             message.setMsgContents("아이디를 입력 하세요.");
             return new Gson().toJson(message);        
         }
         // (2 : pass 미입력)
-        if(null == user.getPw() || "".equals(user.getPw())) {
+        if(null == user.getUpassword() || "".equals(user.getUpassword())) {
             message.setMsgId("2");
             message.setMsgContents("비밀번호를 입력 하세요.");
             return new Gson().toJson(message);        
@@ -84,7 +84,7 @@ public class LoginController {
             message.setMsgContents("비밀번호를 확인  하세요.");
         }else if(30==status) {                    // (30 : 성공)
             message.setMsgId("30");
-            message.setMsgContents(user.getId()+"가 로그인 되었습니다.");
+            message.setMsgContents(user.getUid()+"가 로그인 되었습니다.");
             
             //----------------------------------------------------------
             //- 사용자 정보 조회 : session처리
@@ -146,7 +146,7 @@ public class LoginController {
         result = this.userService.doSearchId(user);        
         if("-1".equals(result)) {         // (10 : id 오류)
             message.setMsgId("10");
-            message.setMsgContents("이름과 이메일을 확인해 주세요.");
+            message.setMsgContents("이메일을 확인해 주세요.");
         }else {                    
             message.setMsgId("30");
             message.setMsgContents("아이디는 " +result+" 입니다.");
@@ -180,7 +180,7 @@ public class LoginController {
         pwresult = this.userService.doSearchPw(user);        
         if("-1".equals(pwresult)) {         // (10 : id 오류)
             message.setMsgId("10");
-            message.setMsgContents("아이디와 이름을 확인해 주세요.");
+            message.setMsgContents("아이디와 이메일을 확인해 주세요.");
         }else {                    
             message.setMsgId("30");
             message.setMsgContents("비밀번호는 " +pwresult+" 입니다.");
