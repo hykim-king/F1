@@ -14,11 +14,11 @@
 <title>RoadScanner mypage test</title>
 </head>
 <body>
-  <h2>${user.id}의 마이페이지</h2>
+  <h2>${user.uid}의 마이페이지</h2>
   <form>
     <div>
       <label>아이디</label>
-      <input type="text" readonly="readonly" value="${user.id}">
+      <input type="text" readonly="readonly" value="${user.uid}">
     </div>
     <div>
       <label>비밀번호 수정</label>
@@ -30,7 +30,7 @@
     </div>
     <div>
       <label>이메일</label>
-      <input type="text" readonly="readonly" value="${user.email}">
+      <input type="text" readonly="readonly" value="${user.uemail}">
     </div>
   </form>
   <form>

@@ -31,7 +31,7 @@
                             url: "${C}/withdraw",
                             dataType: "html",
                             data: {
-                                password: password
+                            	password: password
                             },
                             success: function(data) {
                                 // 탈퇴 결과에 따른 처리 (예: 팝업 메시지 띄우기 등)
