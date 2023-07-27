@@ -17,7 +17,7 @@
 <title>RoadScanner mypage test</title>
 </head>
 <body>
-  <h2 style="text-align: center; margin-top: 100px;">${user.uid}의 마이페이지</h2>
+  <h2 style="text-align: center; margin-top: 100px; margin-bottom: 80px;">${user.uid}의 마이페이지</h2>
 	  <div id="container">
 		  <form>
 		    <fieldset style="border:0 solid black;">
@@ -43,16 +43,17 @@
 		    </fieldset>
 		  </form>
 		</div>
-	  <div id="div_button01">
-	    <input type="button" id="update" value="수정">
-	    <input type="button" id="cancel" value="취소">
-	  </div>
-	  <div id="div_button02">
-	      <input type="button" id="myQnAboard" value="내 QnA보기">
-	  </div>
-	  <div id="div_button03">
-	      <input type="button" id="withdraw" value="탈퇴">
-	  </div>
+		<div class="update_btn">
+		    <input type="button" class="btn btn-outline-primary" id="update" value="수정">
+		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    <input type="button" class="btn btn-outline-danger" id="cancel" value="취소">
+	    </div>
+        <div class="qna_btn">
+        <input type="button" class="btn btn-outline-dark" id="myQnAboard" value="내 QnA보기">
+        </div>
+        <div class="draw_btn">
+        <input type="button" class="btn btn-outline-dark" id="withdraw" value="탈퇴">
+        </div>
 </body>
 <script>
 function check_pw() {
