@@ -19,10 +19,16 @@
     <spring-cloud-starter-aws-version>2.0.1.RELEASE</spring-cloud-starter-aws-version>
     <spring-cloud-aws-context-version>1.2.1.RELEASE</spring-cloud-aws-context-version>
     <spring-cloud-aws-autoconfigure-version>1.2.1.RELEASE</spring-cloud-aws-autoconfigure-version>
+    <jackson-databind-version>2.12.5</jackson-databind-version>
     
   </properties>
 
   <dependencies>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${jackson-databind-version}</version>
+		</dependency>
     <!-- AWS S3 -->
     <dependency>
 		    <groupId>org.springframework.cloud</groupId>
