@@ -8,6 +8,12 @@
     <!-- CSS -->
     <link href="${CP}/resources/css/default.css" rel="stylesheet">
     <link href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'NanumSquare';
+        }
+    </style>
     <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
     <script>
@@ -26,17 +32,17 @@
                         // 비밀번호를 서버로 전송하여 회원 탈퇴 처리 요청 전송
                         $.ajax({
                             type: "POST",
-                            url: "${CP}/withdraw", // 변경된 URL
+                            url: "${CP}/withdraw", 
                             dataType: "html",
                             data: {
-                                password: password
+                            	upassword: password
                             },
                             success: function(data) {
-                                // 탈퇴 결과에 따른 처리 (예: 팝업 메시지 띄우기 등)
-                                alert(data); // 서버에서 전달한 메시지를 팝업으로 띄웁니다.
+                                // 탈퇴 결과에 따른 처리
+                                alert(data); 
                                 if (data === "success") {
-                                    var loginPageUrl = "${CP}/login"; // 로그인 페이지 URL
-                                    window.location.href = loginPageUrl; // 로그인 페이지로 이동합니다.
+                                    var loginPageUrl = "${CP}/login"; 
+                                    window.location.href = loginPageUrl; // 로그인 페이지로 이동
                                 }
                             },
                             error: function(data) {

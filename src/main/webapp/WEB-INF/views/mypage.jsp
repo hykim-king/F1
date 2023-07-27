@@ -14,51 +14,7 @@
 <title>RoadScanner mypage test</title>
 </head>
 <body>
-<<<<<<< HEAD
-  <h2>${user.uid}의 마이페이지</h2>
-  <form>
-    <div>
-      <label>아이디</label>
 
-      <input type="text" readonly="readonly" value="${user.uid}">
-
-      <input type="text" id="uid" readonly="readonly" value="${user.uid}">
-
-    </div>
-    <div>
-      <label>비밀번호 수정</label>
-      <input type="password" id="upassword" placeholder="문자, 숫자, 특수문자 포함 8~20글자)" >
-    </div>
-    <div>
-      <label>비밀번호 확인</label><br/>
-      <input type="password" id="upassword2" placeholder="비밀번호 재입력" onchange="check_pw()"><br/>
-      <label id="pw_check"></label>
-    </div>
-    <div>
-      <label>이메일</label>
-<<<<<<< HEAD
-
-=======
->>>>>>> e03dcbdd3f797851135881d330da1698f8756e77
-      <input type="text" readonly="readonly" value="${user.uemail}">
-
-      <input type="text" id="uemail" readonly="readonly" value="${user.uemail}">
-
-    </div>
-  </form>
-  <form>
-    <div>
-      <input type="button" id="update" value="수정">
-      <input type="button" id="cancel" value="취소">
-    </div>
-  </form>
-  <div>
-      <input type="button" id="myQnAboard" value="내 QnA보기">
-  </div>
-  <div>
-      <input type="button" id="withdraw"  value="탈퇴">
-  </div>
-=======
   <h2 style="text-align: center;">${user.uid}의 마이페이지</h2>
 	  <div id="container">
 		  <form>
@@ -91,7 +47,7 @@
 	  <div id="div_button03">
 	      <input type="button" id="withdraw" value="탈퇴">
 	  </div>
->>>>>>> 2c3fb99f00a14de737d94e0bb32ceedd2470705d
+
 </body>
 <script>
 function check_pw() {
