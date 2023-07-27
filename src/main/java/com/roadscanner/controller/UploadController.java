@@ -5,6 +5,8 @@ import java.io.File;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.roadscanner.upload.FileUtil;
@@ -14,18 +16,18 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class UploadController {
 	
-	@GetMapping(value = "/feedback") //http://localhost:8080/road-scanner/feedback
+	@RequestMapping(value = "/feedback")
 	public String feedback() {
 		return "feedback";
 	}
 	
-	@GetMapping(value = "/upload")
+	@RequestMapping(value = "/upload")
 	public String upload() {
 		return "upload";
 	}
 	
     // 파일 업로드 처리
-    @PostMapping("/fileUploaded")
+	@RequestMapping(value = "/fileUploaded", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     public String uploadFile(@RequestParam("file") MultipartFile file) {
         if (!file.isEmpty()) {
             String fileName = file.getOriginalFilename();
