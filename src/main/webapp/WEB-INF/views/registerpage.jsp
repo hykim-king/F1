@@ -194,7 +194,7 @@
                 	ugrade: $("#grade").val(),
                     uid: $("#id").val(),
                     upassword: $("#pw").val(),
-                    uemail: $("#email").val()
+                    uemail: $("#email").val(),
                    
                 },
                 success:function(data){//통신 성공

@@ -3,9 +3,10 @@
 <mapper namespace="mapper.Member">
 	<resultMap id="MemberMap" type="MemberVO">
         <result column="u_id"            property="uid"   />
-        <result column="u_password"      property="upassword"   />
+        <result column="u_password"      property="upassword"  />
         <result column="u_email"         property="uemail"/>
-        <result column="u_grade"         property="ugrade"/>   
+        <result column="u_grade"         property="ugrade"/>  
+        <result column="mj_time"         property="mjtime"/>  
     </resultMap>    
     
     <!-- 아이디로 회원정보 반환 -->
@@ -83,12 +84,14 @@
 		        u_grade,     
                 u_id,       
                 u_password, 
-                u_email 
+                u_email,
+                mj_time 
      ) VALUES (
         #{ugrade},    
         #{uid},       
         #{upassword},        
-        #{uemail} 
+        #{uemail},
+        SYSDATE
      )      
   </insert>  
     
@@ -117,8 +120,8 @@
   </update>  -->
   
   <!-- 유저 삭제 -->
- <!--  <delete id="deleteOne" parameterType="MemberVO">
+  <delete id="deleteOne" parameterType="MemberVO">
     DELETE FROM road_member
     WHERE id = #{id}
-  </delete> -->
+  </delete>
 </mapper>
