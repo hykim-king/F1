@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- CSS -->
-<link  href="${CP}/resources/css/default.css" rel="stylesheet">
+<link  href="${CP}/resources/css/membership-style.css" rel="stylesheet">
 <link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
 <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
@@ -55,7 +55,7 @@
 	                 <option value="paran.com"></option>
 	                 <option value="yahoo.com"></option>              
 	               </datalist>
-	               <input type="button" id="emailDulpCheck" value="중복확인">
+	               <input type="button" class="emailDulpCheck" id="emailDulpCheck" value="중복확인">
 	             </li>
 	             
 	             
@@ -65,16 +65,15 @@
 	        <input type="button" id="register" value="가입하기">
 	        <input type="button" id="noneRegister" value="취소" onclick="firstForm()">
        </div>
-	       <div>
-	            <input type="button" onclick="window.location.href='${CP}/login';" value="로그인페이지">
-	            <input type="button" onclick="window.location.href='${CP}/';" value="홈페이지">	           
+	       <div style="margin-top: 20px;">
+	            <input type="button" class = "outbtn1" onclick="window.location.href='${CP}/login';" value="로그인페이지">
+	            <input type="button" class = "outbtn2" onclick="window.location.href='${CP}/';" value="홈페이지">	           
 	       </div>
      </form>
    <form method="POST" name="register_form">
          <input type="hidden" name="grade" id="grade" value="1">
          <input type="hidden" name="id" id="id">
-         <input type="hidden" name="pw" id="pw">
-         <input type="hidden" name="email" id="email">
+         <input type="hidden" name="pw" id="pw">      
      </form>
 </div>    
 </body>
@@ -194,8 +193,7 @@
                 	ugrade: $("#grade").val(),
                     uid: $("#id").val(),
                     upassword: $("#pw").val(),
-                    uemail: $("#email").val(),
-                   
+                    uemail: $("#email").val()
                 },
                 success:function(data){//통신 성공
                     //console.log("success data:"+data);

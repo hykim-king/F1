@@ -36,6 +36,41 @@
            font-family: 'Noto Sans KR', sans-serif;
          }
          
+		 .emailDulpCheck {
+		   background-color: #40c1fc;
+		   color: #ffffff;
+		   border:1px solid #40c1fc;
+		   width: 80px;
+		   height: 40px;
+		   font-family: 'Nanum Pen Script', cursive;
+		   font-family: 'Noto Sans KR', sans-serif;
+		 }
+		 
+		 .outbtn1 {
+           font-size: 12pt;
+           text-align:center;
+           width:150px;
+           height:40px;      
+           background-color:#40c1fc;
+           color: #ffffff;
+           border:0px solid #40c1fc;
+           margin-left: 110px;
+           font-family: 'Nanum Pen Script', cursive;
+           font-family: 'Noto Sans KR', sans-serif;
+         }
+         
+         .outbtn2 {
+           font-size: 12pt;
+           text-align:center;
+           width:150px;
+           height:40px;      
+           background-color:#ffbd24;
+           color: #ffffff;
+           border:0px solid #ffbd24;
+           font-family: 'Nanum Pen Script', cursive;
+           font-family: 'Noto Sans KR', sans-serif;
+         }
+         
          input[type="email"] {
            font-size: 12pt;
            width: 185px;
