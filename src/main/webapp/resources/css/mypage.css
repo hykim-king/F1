@@ -1,39 +1,38 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR&display=swap');
-
 	#container {
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  font-family: 'Nanum Pen Script', cursive;
-    font-family: 'Noto Sans KR', sans-serif;
-		font-size: 16px;
+	  margin-top: 60px;
+	  margin: auto;
+	  width: 800px;
 	}
 	
-	#div_button01 {
-	  margin-top: 20px;
-	  display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Nanum Pen Script', cursive;
-    font-family: 'Noto Sans KR', sans-serif;
+	label {
+	  font-size: 20px;
 	}
 	
-	#div_button02 {
+	input {
+	  height: 50px;
+	}
+	
+	li {
 	  margin-top: 20px;
-	  display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Nanum Pen Script', cursive;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  
-  #div_button03 {
-    margin-top: 20px;
-    font-family: 'Nanum Pen Script', cursive;
-    font-family: 'Noto Sans KR', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+	}
+	
+	.update_btn, .qna_btn, .draw_btn {
+	   text-align: center;
+	}
+	
+	#update, #cancel {
+	   margin-top: 40px;
+	   width: 150px;
+	}
+	
+	#myQnAboard {
+       margin-top: 60px;
+       width: 200px;
+    }
+    
+    #withdraw {
+       margin-top: 20px;
+       width: 200px;
+    }
