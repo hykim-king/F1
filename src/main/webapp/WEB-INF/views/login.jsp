@@ -21,7 +21,7 @@
     <div class = "roadscannercontainer">  
         <div class = loginbox>
             <div class= "loginboxdiv">
-              <input class= "icon" type="image" src="${CP}/resources/img/passwordicon.png" readonly="readonly" >
+              <input class= "icon" type="image" src="${CP}/resources/img/usericon.png" readonly="readonly" >
               <input class="loginidpwbtn" type="text" id="id" name="id" placeholder="아이디"><p/>
 	        </div>
 	         
@@ -32,10 +32,24 @@
 	        
 	          <button  type="button" class="loginbtn" id="doLogin" name="doLogin" >로그인</button><p/>
             
-            <div style="width: 510px">
-	          <button type="button" class="anotherbtn" onclick=" window.location.href='${CP}/findIdPw';"></button>
-	          <button type="button" class="anotherbtn" onclick=" window.location.href='${CP}/registerpage';"></button>
+            <div style="margin: auto;">
+            
+            <button type="button" class="outbtn1"
+              onclick=" window.location.href='${CP}/findIdPw';">
+	            <div class= "btndiv" style="background-color: blue;">
+		          ID/PW찾기
+		        </div>
+	        </button>
+	           
+	        <button type="button" class="outbtn2" 
+              onclick=" window.location.href='${CP}/registerpage';">
+		        <div class= "btndiv" style="background-color: yellow;">    
+		                   회원가입
+	            </div>
+            </button>
+            
             </div>
+          
 	    </div>  <!-- class = loginbox  -->
     </div>
 
