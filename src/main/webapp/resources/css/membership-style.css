@@ -4,20 +4,24 @@
 /* font-family: 'Nanum Pen Script', cursive;
    font-family: 'Noto Sans KR', sans-serif; */
 
-		#container {
-		  width : 600px;
-		  margin : 20px auto;
+		.container {
+		  margin : 60px auto;
+		  text-align : center;
 		  font-family: 'Nanum Pen Script', cursive;
 		  font-family: 'Noto Sans KR', sans-serif;
          }
          
          ul {
-           list-style: none;
+            list-style:none;
+               margin: auto; 
          }
          
          li {
+           width:500px;
+           margin: auto; 
+           margin-top:20px;
            font-weight: bold;
-           margin: 20px 0px;
+  
          }  
          
          #id_form, #pw_form, #pw2_form, #name_form, #phone_num {
@@ -34,6 +38,17 @@
            height: 40px;
            font-family: 'Nanum Pen Script', cursive;
            font-family: 'Noto Sans KR', sans-serif;
+           border-radius: 0.375rem;
+         }
+         
+          
+         .passblank {
+           background-color: white;
+           color: white;
+           border:none;
+           width: 80px;
+           height: 40px;
+           outline: none;
          }
          
 		 .emailDulpCheck {
@@ -44,6 +59,7 @@
 		   height: 40px;
 		   font-family: 'Nanum Pen Script', cursive;
 		   font-family: 'Noto Sans KR', sans-serif;
+		   border-radius: 0.375rem;
 		 }
 		 
 		 .outbtn1 {
@@ -54,7 +70,8 @@
            background-color:#40c1fc;
            color: #ffffff;
            border:0px solid #40c1fc;
-           margin-left: 110px;
+           border-radius: 0.375rem;
+           margin-right: 45px;
            font-family: 'Nanum Pen Script', cursive;
            font-family: 'Noto Sans KR', sans-serif;
          }
@@ -65,8 +82,10 @@
            width:150px;
            height:40px;      
            background-color:#ffbd24;
+           margin-left: 30px;
            color: #ffffff;
            border:0px solid #ffbd24;
+           border-radius: 0.375rem;
            font-family: 'Nanum Pen Script', cursive;
            font-family: 'Noto Sans KR', sans-serif;
          }
@@ -76,7 +95,13 @@
            width: 185px;
            height: 35px;
          }
-                        
+         
+         .listinput {
+           font-size: 12pt;
+           width: 185px;
+           height: 35px;
+         }      
+		      
          #birth_year {
            font-size: 12pt;
            width: 125px;
@@ -116,9 +141,10 @@
            background-color:#40c1fc;
            color: #ffffff;
            border:0px solid #40c1fc;
-           margin-left: 110px;
+           margin-right: 45px;
            font-family: 'Nanum Pen Script', cursive;
            font-family: 'Noto Sans KR', sans-serif;
+           border-radius: 0.375rem;
          }
          
          #noneRegister {
@@ -127,9 +153,11 @@
            width:150px;
            height:40px;      
            background-color:#ffbd24;
+           margin-left: 30px;
            color: #ffffff;
            border:0px solid #ffbd24;
            font-family: 'Nanum Pen Script', cursive;
            font-family: 'Noto Sans KR', sans-serif;
+           border-radius: 0.375rem;
          }          
            

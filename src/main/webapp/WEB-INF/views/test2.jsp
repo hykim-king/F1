@@ -41,8 +41,30 @@
        </label>
 	   <input type="text" id = "test" name = "test" >
 	</div>
-	
-</body>
+	<div>
+		<label for="lang">Language</label>
+		  <select name="languages" id="lang">
+		    <option value="javascript">JavaScript</option>
+		    <option value="php">PHP</option>
+		    <option value="java">Java</option>
+		    <option value="golang">Golang</option>
+		    <option value="python">Python</option>
+		    <option value="c#">C#</option>
+		    <option value="C++">C++</option>
+		    <option value="erlang">Erlang</option>
+			</div>
+    </body>
+<script>
+jQuery(document).ready(function(){
+	   
+    var select = $("select#data");
+   
+    select.change(function(){
+        var select_name = $(this).children("option:selected").text();
+        $(this).siblings("label").text(select_name);
+    });
+});
+</script>
 <script>
 	$(document).ready(function(){ 
 	    console.log("$document.ready");
