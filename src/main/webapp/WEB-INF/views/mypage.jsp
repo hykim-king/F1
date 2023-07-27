@@ -9,31 +9,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"  href="resources/css/mypage.css">
 <link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
 <title>RoadScanner mypage test</title>
 </head>
 <body>
-  <h2 style="text-align: center;">${user.uid}의 마이페이지</h2>
+  <h2 style="text-align: center; margin-top: 100px;">${user.uid}의 마이페이지</h2>
 	  <div id="container">
 		  <form>
-		    <div id="div_id">
-		      <label>아이디</label><br/>
-		      <input class="form-control" type="text" id="uid" readonly="readonly" value="${user.uid}">
-		    </div>
-		    <div id="div_pw">
-		      <label>비밀번호 수정</label><br/>
-		      <input class="form-control" type="password" id="upassword" placeholder="문자, 숫자, 특수문자 포함 8~20글자)" >
-		    </div>
-		    <div id="div_pw2">
-		      <label>비밀번호 확인</label>
-		      <label id="pw_check"></label><br/>
-		      <input class="form-control" type="password" id="upassword2" placeholder="비밀번호 재입력" onchange="check_pw()">
-		    </div>
-		    <div id="div_email">
-		      <label>이메일</label><br/>
-		      <input class="form-control" type="text" id="uemail" readonly="readonly" value="${user.uemail}">
-		    </div>
+		    <fieldset style="border:0 solid black;">
+		      <ul class="list-group" style="list-style: none;">
+			      <li>
+				      <label>아이디</label><br/>
+				      <input class="form-control" type="text" id="uid" readonly="readonly" value="${user.uid}">
+				    </li>
+				    <li>
+				      <label>비밀번호 수정</label><br/>
+				      <input class="form-control" type="password" id="upassword" placeholder="문자, 숫자, 특수문자 포함 8~20글자)" >
+				    </li>
+				    <li>
+				      <label>비밀번호 확인</label>
+				      <label id="pw_check"></label><br/>
+				      <input class="form-control" type="password" id="upassword2" placeholder="비밀번호 재입력" onchange="check_pw()">
+				    </li>
+				    <li>
+				      <label>이메일</label><br/>
+				      <input class="form-control" type="text" id="uemail" readonly="readonly" value="${user.uemail}">
+				    </li>
+			    </ul>
+		    </fieldset>
 		  </form>
 		</div>
 	  <div id="div_button01">
