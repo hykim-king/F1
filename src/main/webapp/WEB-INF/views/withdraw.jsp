@@ -45,8 +45,10 @@
                         });
                     }
                 }
-            });
-        });
+                
+            });   // doWithdraw click end
+            
+        });   // document).ready
     </script>
 </head>
 <body>
