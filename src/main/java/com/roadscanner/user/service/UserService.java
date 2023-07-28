@@ -53,6 +53,7 @@ public interface UserService {
 	 */
 	public int doEmailDuplCheck(MemberVO user) throws SQLException;
 	
+	
 	/**
 	 * 아이디 여부 확인 id 반환
 	 * @param user

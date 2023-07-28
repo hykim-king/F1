@@ -48,22 +48,14 @@ public class WithdrawController {
         MessageVO message = new MessageVO();
         
         // UserService에 비밀번호가 일치하는지 확인하는 메서드가 있다
-        int withdrawStatus = userService.doWithdraw(user);
+        int withdrawStatus = userService.deleteOne(user);
         
         if (withdrawStatus == 1) {
-            // 탈퇴 처리 성공
-            int deleteStatus = userService.doWithdraw(user);
-            if (deleteStatus == 1) {
-                message.setMsgId("30");
+                message.setMsgId("10");
                 message.setMsgContents("탈퇴되었습니다.");
-            } else {
+        } else {
                 message.setMsgId("20");
                 message.setMsgContents("회원 탈퇴에 실패했습니다.");
-            }
-        } else {
-            // 비밀번호가 일치하지 않아 탈퇴 처리 실패
-            message.setMsgId("10");
-            message.setMsgContents("비밀번호를 확인해 주세요.");
         }
         
         jsonString = new Gson().toJson(message);

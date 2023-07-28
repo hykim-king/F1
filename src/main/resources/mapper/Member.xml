@@ -77,6 +77,8 @@
       AND u_id  = #{uid}
     </select>
     
+    
+    
     <!-- 회원가입  -->
     <insert id="insertOne" parameterType="MemberVO" >
     INSERT INTO road_member (    
@@ -115,10 +117,12 @@
     SET del = '1'
     WHERE no = #{no}
   </update>  -->
+
+
   
   <!-- 유저 삭제 -->
- <!--  <delete id="deleteOne" parameterType="MemberVO">
+ <delete id="deleteOne" parameterType="MemberVO">
     DELETE FROM road_member
-    WHERE id = #{id}
-  </delete> -->
+    WHERE u_id = #{uid}
+  </delete>
 </mapper>
