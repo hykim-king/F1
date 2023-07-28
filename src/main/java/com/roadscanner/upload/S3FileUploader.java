@@ -6,43 +6,58 @@ import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 import software.amazon.awssdk.services.s3.model.S3Exception;
+import software.amazon.awssdk.core.sync.RequestBody;
 
-import java.io.File;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.IOException;
+import java.io.InputStream;
 
 public class S3FileUploader {
-	
 
     // AWS 자격 증명 설정
-    private static final String ACCESS_KEY = "357109854816";
-    private static final String SECRET_KEY = "rDxva&8&";
-    private static final String REGION = "ap-northeast-2";
+    @Value("${cloud.aws.credentials.access-key}")
+    private String accessKey;
+
+    @Value("${cloud.aws.credentials.secret-key}")
+    private String secretKey;
+
+    @Value("${cloud.aws.region.static}")
+    private String region;
 
     // S3 버킷 설정
-    private static final String BUCKET_NAME = "roadscanner-bucket";
+    @Value("${cloud.aws.s3.bucket}")
+    private String bucketName;
 
-    public static void uploadFile(File fileToUpload, String fileKey) throws IOException {
+    public S3FileUploader(String accessKey, String secretKey, String region, String bucketName) {
+        this.accessKey = accessKey;
+        this.secretKey = secretKey;
+        this.region = region;
+        this.bucketName = bucketName;
+    }
+
+    public void uploadFile(MultipartFile fileToUpload) throws IOException {
         S3Client s3Client = S3Client.builder()
-                                    .region(Region.of(REGION))
+                                    .region(Region.of(region))
                                     .credentialsProvider(StaticCredentialsProvider.create(
-                                            AwsBasicCredentials.create(ACCESS_KEY, SECRET_KEY)
+                                            AwsBasicCredentials.create(accessKey, secretKey)
                                     ))
                                     .build();
 
-        try {
+        try (InputStream inputStream = fileToUpload.getInputStream()) {
             PutObjectRequest request = PutObjectRequest.builder()
-                                                       .bucket(BUCKET_NAME)
-                                                       .key(fileKey)
+                                                       .bucket(bucketName)
+                                                       .key(fileToUpload.getOriginalFilename()) // S3에 저장될 파일 이름
                                                        .build();
 
-            s3Client.putObject(request, fileToUpload.toPath());
-            System.out.println("File upload Success!");
+            s3Client.putObject(request, RequestBody.fromInputStream(inputStream, fileToUpload.getSize()));
+            System.out.println("파일 업로드 성공!");
         } catch (S3Exception e) {
-            System.err.println("Error: " + e.getMessage());
+            System.err.println("에러: " + e.getMessage());
             throw e; // 업로드 실패 시 예외를 발생시킵니다. 이후 컨트롤러에서 예외 처리 가능
         } finally {
             s3Client.close(); // 클라이언트 리소스 정리
         }
     }
-
 }
