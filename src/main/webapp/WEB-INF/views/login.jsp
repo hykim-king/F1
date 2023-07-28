@@ -20,6 +20,7 @@
 <body>
     <div class = "roadscannercontainer">  
         <div class = loginbox>
+
             <div class= "loginboxdiv">
               <input class= "icon" type="image" src="${CP}/resources/img/usericon.png" readonly="readonly" >
               <input class="loginidpwbtn" type="text" id="id" name="id" placeholder="아이디"><p/>
@@ -29,9 +30,8 @@
 	          <input class= "icon" type="image" src="${CP}/resources/img/passwordicon.png" readonly="readonly"> 
 	          <input class="loginidpwbtn" type="password" id="pw" name= "pw" placeholder="비밀번호"><p/>
 	        </div>
-	        
-	          <button  type="button" class="loginbtn" id="doLogin" name="doLogin" >로그인</button><p/>
-            
+	          <button  type="submit" class="loginbtn" id="doLogin" name="doLogin" >로그인</button><p/>
+         
             <div style="margin: auto;">
             
             <button type="button" class="outbtn1"
@@ -49,7 +49,6 @@
             </button>
             
             </div>
-          
 	    </div>  <!-- class = loginbox  -->
     </div>
 
