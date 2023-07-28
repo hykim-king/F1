@@ -7,104 +7,23 @@
 <head>
     <meta charset="UTF-8"> 
     <!-- CSS -->
-    <link href="${CP}/resources/css/default.css" rel="stylesheet">
+    <link href="${CP}/resources/css/withdraw.css" rel="stylesheet"> <!--.css 파일 연결 -->
     <link href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
     <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
     <title>test</title>
-   <style>
-      /* 전체 페이지 스타일 설정 */
-      body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background-color: #f9f9f9;
-        margin: 0;
-        padding: 0;
-      }
-
-      /* 탈퇴 페이지 컨테이너 스타일 */
-      .container {
-        max-width: 600px;
-        margin: 50px auto;
-        padding: 20px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-
-
-      /* 제목 스타일 */
-      h1 {
-        text-align: center;
-        color: #4285f4;
-        margin-bottom: 10px; /* 제목과 내용 사이 간격 조정 */
-      }
-
-      /* 내용 스타일 */
-      p {
-        text-align: center; /* 내용 중앙 정렬 */
-        margin-bottom: 30px; /* 제목과 내용 사이 간격 조정 */
-      }
-
-      /* 입력 폼 스타일 */
-      form {
-        display: flex;
-        flex-direction: column;
-      }
-
-      label {
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-
-      input[type="text"],
-      input[type="password"],
-      button {
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 100%; /* 너비를 100%로 설정하여 동일한 길이로 만듦 */
-        box-sizing: border-box; /* 패딩과 보더를 포함한 전체 너비 유지 */
-      }
-
-      input[type="password"]::placeholder {
-        color: #ccc;
-      }
-
-      /* 탈퇴 버튼 스타일 */
-      button {
-        background-color: #4285f4;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #3367d6;
-      }
-
-      /* 링크 스타일 */
-      a {
-        color: #4285f4;
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-    </style>
+	
 
 </head>
 <body>
     <div class="container">
-        <h1>탈퇴 페이지</h1>
+        <h1>RoadScanner</h1>
         <form>
           <label for="password"></label>
           <input type="password" id="upassword" placeholder="비밀번호를 입력하세요">
         </form>
         <input type="hidden" id="uid"  value="${user.uid}">
-        <input type="text" id="upw"  value="${user.upassword}">
+        <input type="hidden" id="upw"  value="${user.upassword}">
         <button id="doWithdraw">회원 탈퇴하기</button>
     </div>
     <script>
