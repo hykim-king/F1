@@ -188,3 +188,4 @@ Servers/
 # End of https://www.toptal.com/developers/gitignore/api/intellij,java,windows,macos
 >>>>>>> ch/fileupload
 *.properties
+logs/

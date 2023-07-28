@@ -11,14 +11,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@WebAppConfiguration
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/servlet-context.xml", "file:src/main/webapp/WEB-INF/root-context.xml"})
-public class UnitControllerTest {
+@WebAppConfiguration
+public class AppControllerTest {
 
     @Autowired
     private WebApplicationContext wac;
@@ -31,25 +30,9 @@ public class UnitControllerTest {
     }
 
     @Test
-    public void OK가_리턴된다() throws Exception {
-        String ok = "OK";
-
-        mockMvc.perform(get("/unit"))
+    public void 메인페이지_로딩() throws Exception {
+        this.mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(ok));
-    }
-
-    @Test
-    public void unitDto가_리턴된다() throws Exception {
-        String name = "hello";
-        int amount = 1000;
-
-        mockMvc.perform(
-                        get("/unit/dto")
-                                .param("name", name)
-                                .param("amount", String.valueOf(amount)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name", is(name)))
-                .andExpect(jsonPath("$.amount", is(amount)));
+                .andExpect(view().name("index"));
     }
 }

@@ -2,28 +2,17 @@
 <html>
 <head>
     <title>로드스캐너</title>
+    <style>
+        .center {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<h1>로드스캐너 시작페이지</h1>
-<h2>요구사항</h2>
-<div>
-    게시판
-    <ul>
-        <li><a href="/board/">전체게시물 확인하기</a></li>
-        <li><a href="/board/detail">게시물 상세페이지</a></li>
-        <li><a href="/board/write">글쓰기 상세페이지</a></li>
-        <li><a href="/board/admin">관리자 전용 게시판</a> <!-- 일단 관리자 모드 고려 x, 임시 링크 설정-->
-    </ul>
-    관리자
-    <ul>
-        <li><a href="/board/#">전체게시물 확인하기</a></li>
-        <li><a href="/board/admin/write">글쓰기 상세페이지</a></li>
-    </ul>
-</div>
-	<ul>
-	    <li>파일업로드</li>
-	    <li><a href = "/login">로그인</a></li>   
-	</ul>
-	    <input type="text" value="push test" readonly="readonly">
+<h1 class="center">태초마을</h1>
+    <div class="center">
+        <img src="https://fileserviceuploadsperm.blob.core.windows.net/files/f434bbea-f988-4844-b370-7ae42acf18a6?se=2023-07-28T15%3A42%3A21Z&sp=r&sv=2021-08-06&sr=b&rscd=attachment%3B%20filename%3D202f9052-9575-4609-8c2d-c33ac9a0daef&sig=/fbhNSFzw%2BYYLox8llWnLB6tdyrZt9d1c/zBlu2QYVQ%3D"></img>
+        <h2>안녕하세요. 이곳은 태초마을입니다. 새롭게 시작해보세요!</h2>
+    </div>
 </body>
 </html>
