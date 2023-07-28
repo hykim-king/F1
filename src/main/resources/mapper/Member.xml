@@ -126,6 +126,6 @@
   <!-- 유저 삭제 -->
   <delete id="deleteOne" parameterType="MemberVO">
     DELETE FROM road_member
-    WHERE id = #{id}
+    WHERE u_id = #{uid}
   </delete>
 </mapper>

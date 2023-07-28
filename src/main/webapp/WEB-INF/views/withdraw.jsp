@@ -104,7 +104,7 @@
           <input type="password" id="upassword" placeholder="비밀번호를 입력하세요">
         </form>
         <input type="hidden" id="uid"  value="${user.uid}">
-        <input type="text" id="upw"  value="${user.upassword}">
+        <input type="hidden" id="upw"  value="${user.upassword}">
         <button id="doWithdraw">회원 탈퇴하기</button>
     </div>
     <script>

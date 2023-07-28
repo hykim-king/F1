@@ -28,6 +28,7 @@ public interface UserService {
 	 * @throws SQLException
 	 */
 	public int doLogin(MemberVO user) throws SQLException;
+	public int doPwCheck(MemberVO user) throws SQLException;
 	
 	/**
 	 * 회원가입
