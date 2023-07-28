@@ -78,13 +78,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int doPwCheck(MemberVO user) throws SQLException {
 		System.out.println("┌────────────────────────────────────────────────────────┐");
-		System.out.println("│ doIdDuplCheck()                                        │");
+		System.out.println("│ doPwCheck()                                        │");
 		System.out.println("└────────────────────────────────────────────────────────┘");
 		
 		int result = 0;
 		int flag = 0;
 		
-		flag = this.userDao.pwCheck(user);
+		flag = this.userDao.searchPwCheck(user);
 		
 		if(1 == flag) {
 			result = 10;

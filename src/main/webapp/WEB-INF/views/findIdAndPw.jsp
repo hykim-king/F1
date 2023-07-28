@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <meta name="author"  content="hbi">  
 <!-- CSS -->
+<link  rel="stylesheet" href="${CP}/resources/css/default.css" >
 <link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
 <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
@@ -15,24 +16,31 @@
 <title>Find_ID_PW</title>
   </head>
 <body>
- <div class = "container">
-    <a href="${CP}/login">로그인 페이지</a>
-      <div><!-- id 찾기 -->
+<div style="margin-top: 70px;">
+<h1 style="text-align: center; font-weight: 900;">RoadScanner</h1>
+  <h4 style="text-align: center; margin-top:50px; font-weight: 800;">아이디 찾기</h4>
+      <div class = "roadscannercontainer"><!-- id 찾기 -->
         <form>
-          <input type="email" id="email" name= "email" placeholder="이메일">
-          <button type="button" id="findId" name="findId">아이디 찾기</button>
+                이메일<br/>
+          <input type="email" class = "findinput" id="email" name= "email" placeholder="이메일"><br/>
+          <button type="button" class= "findbtn" id="findId" name="findId">아이디 찾기</button>
         </form>
         <input type ="hidden" id ="id" name ="id">
       </div><!-- id 찾기 -->
-      
-	  <div><!-- pw 찾기 -->
+      <div class = "jb-division-line"></div>
+	  <div class = "roadscannercontainer"><!-- pw 찾기 -->
+	  <h4 style="text-align: center; margin-bottom:50px; font-weight: 800;">비밀번호 찾기</h4>
         <form>
-          <input type="text" id="userId" name="userId" placeholder="아이디">
-          <input type="email" id="email2" name= "email2" placeholder="이메일">
-          <button type="button" id="findPw" name="findPw">비밀번호 찾기</button>
+          아이디<br/>
+          <input type="text" class="findinput" style="margin-bottom: 20px;"
+          id="userId" name="userId" placeholder="아이디"><br/>
+          이메일<br/>
+          <input type="email" class="findinput"  id="email2" name= "email2" placeholder="이메일"><br/>
+          <button type="button" class= "findbtn" id="findPw" name="findPw">비밀번호 찾기</button>
         </form>
-      </div><!-- pw 찾기 -->  
-    </div><!-- container -->   
+      </div><!-- pw 찾기 -->
+      <a style="margin: auto;" href="${CP}/login">로그인 페이지</a>
+</div> <!-- container -->   
 </body> 
    <script>
     $(document).ready(function(){ //모든 화면이 다 로딩이 되면 실행하는 영역
