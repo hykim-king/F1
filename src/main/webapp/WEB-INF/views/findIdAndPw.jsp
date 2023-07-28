@@ -12,18 +12,21 @@
 <link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
 <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
+<script type="text/javascript"> 
+   history.replaceState({}, null, location.pathname); 
+</script> 
 <link>
 <title>Find_ID_PW</title>
   </head>
 <body>
 <div style="margin-top: 70px;">
-<h1 style="text-align: center; font-weight: 900;">RoadScanner</h1>
-  <h4 style="text-align: center; margin-top:50px; font-weight: 800;">아이디 찾기</h4>
       <div class = "roadscannercontainer"><!-- id 찾기 -->
+        <h1 style="text-align: center; font-weight: 900;">RoadScanner</h1>
+            <h4 style="text-align: center; margin-top:50px; font-weight: 800;">아이디 찾기</h4>
         <form>
                 이메일<br/>
           <input type="email" class = "findinput" id="email" name= "email" placeholder="이메일"><br/>
-          <button type="button" class= "findbtn" id="findId" name="findId">아이디 찾기</button>
+          <button type="submit" class= "findbtn" id="findId" name="findId">아이디 찾기</button>
         </form>
         <input type ="hidden" id ="id" name ="id">
       </div><!-- id 찾기 -->
@@ -36,7 +39,7 @@
           id="userId" name="userId" placeholder="아이디"><br/>
           이메일<br/>
           <input type="email" class="findinput"  id="email2" name= "email2" placeholder="이메일"><br/>
-          <button type="button" class= "findbtn" id="findPw" name="findPw">비밀번호 찾기</button>
+          <button type="submit" class= "findbtn" id="findPw" name="findPw">비밀번호 찾기</button>
         </form>
       </div><!-- pw 찾기 -->
       <a style="margin: auto;" href="${CP}/login">로그인 페이지</a>
@@ -57,7 +60,7 @@
           
           $.ajax({
                 type: "POST",
-              url:"${path}/findId",
+              url:"${CP}/findId",
                 /* asyn:"true", */
                 dataType:"html",
                 data:{
@@ -90,7 +93,9 @@
             }); //  $.ajax End --------------------------     
           
           
-        }); // $("#findId").on("click") End --------------------------  
+        }); // $("#findId").on("click") End --------------------------
+        
+        
         
         $("#findPw").on("click",function(){  
             console.log("userId : "+$("#userId").val());
@@ -109,7 +114,7 @@
            
             $.ajax({
                   type: "POST",
-                  url:"${path}/findPw",
+                  url:"${CP}/findPw",
                   /* asyn:"true", */
                   dataType:"html",
                   data:{
