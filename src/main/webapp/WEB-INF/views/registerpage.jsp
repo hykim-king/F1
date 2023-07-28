@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <!-- CSS -->
-<link  href="${CP}/resources/css/default.css" rel="stylesheet">
+<link  href="${CP}/resources/css/membership-style.css" rel="stylesheet">
 <link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
 <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
@@ -17,64 +17,65 @@
 <div class ="container">
     <h1>회원가입</h1>
                  회원이 되어 다양한 혜택을 경험해 보세요
-	       <form action="" method="post" name="membership">
-	         <fieldset style="border:0 solid black;">
+	       <form action="" method="post" name="membership" style="margin: auto;">         
 	           <ul>
 	             <li>
-	               <label>아이디</label><br/>
-	               <input type="text" name="id_form" id="id_form" onkeyup="id_form_check(event)" placeholder="아이디 입력(영어, 숫자포함 6~20자)">
+	               <label for= "id_form" style="float: left">아이디</label><br/>
+	               <input type="text" name="id_form" id="id_form" onkeyup="id_form_check(event)" onchange="id_length_check()" placeholder="아이디 입력(영어, 숫자포함 6~20자)">
 	               <input type="button" id="idDulpCheck" value="중복확인">
 	             </li>
 	             <li>
-	               <label>비밀번호</label><br/>
+	               <label style="float: left">비밀번호</label><br/>
 	               <input type="password" name="pw_form" id="pw_form" placeholder="(문자, 숫자, 특수문자[!,@,#,$,%,*]) 포함 8~20자)" onchange="check_pw()">
+	               <input type="text" class="passblank" readonly="readonly">
 	             </li>
 	             <li>
-	               <label>비밀번호 확인</label><br/>
-	               <input type="password" name="pw2_form" id="pw2_form" placeholder="비밀번호 재입력" onchange="check_pw()"> <br/>
-	               <label id="pw_check"></label>
+	               <label style="float: left">비밀번호 확인</label><label id="pw_check"></label><br/>
+	               <input type="password" name="pw2_form" id="pw2_form" placeholder="비밀번호 재입력" onchange="check_pw()">
+	               <input type="text" class="passblank" readonly="readonly">           
 	             </li>
 	             <li>
-	               <label>이메일 주소</label><br/>
+	             <div>
+	               <label style="float: left">이메일 주소</label><br/>
 	               <input type="email" name="email_front" id="email_front" onkeyup="check_email(event)" placeholder="이메일 주소">
 	               <label>@</label>
-	               <input type="email" name="email_back" list="email_back" autocomplete="off" placeholder="ex)naver.com">    
-	               <datalist id="email_back">              
-	                 <option value="dreamwiz.com"></option>
-	                 <option value="empas.com"></option>
-	                 <option value="freechal.com"></option>
-	                 <option value="gmail.com"></option>
-	                 <option value="hanmail.net"></option>
-	                 <option value="hanmir.com"></option>
-	                 <option value="hotmail.com"></option>
-	                 <option value="kakao.com"></option>
-	                 <option value="korea.com"></option>
-	                 <option value="lycos.co.kr"></option>
-	                 <option value="nate.com"></option>
-	                 <option value="naver.com"></option>
-	                 <option value="paran.com"></option>
-	                 <option value="yahoo.com"></option>              
-	               </datalist>
-	               <input type="button" id="emailDulpCheck" value="중복확인">
+	               <input type="text" class="listinput" list="email_list" id="email_back" value="">
+	               <datalist id= "email_list">       
+		                 <option value="dreamwiz.com">dreamwiz.com</option>
+		                 <option value="empas.com">empas.com</option>
+		                 <option value="freechal.com">freechal.com</option>
+		                 <option value="gmail.com">gmail.com</option>
+		                 <option value="hanmail.net">hanmail.net</option>
+		                 <option value="hanmir.com">hanmir.com</option>
+		                 <option value="hotmail.com">hotmail.com</option>
+		                 <option value="kakao.com">kakao.com</option>
+		                 <option value="korea.com">korea.com</option>
+		                 <option value="lycos.co.kr">lycos.co.kr</option>
+		                 <option value="nate.com">nate.com</option>
+		                 <option value="naver.com">naver.com</option>
+		                 <option value="paran.com">paran.com</option>
+		                 <option value="yahoo.com">yahoo.com</option>              
+		           </datalist>
+	               <input type="button" class="emailDulpCheck" id="emailDulpCheck" value="중복확인">
+	             </div>
 	             </li>
 	             
 	             
 	           </ul>
-	         </fieldset>
-	       <div>
+	       <div style="margin: auto;">
 	        <input type="button" id="register" value="가입하기">
 	        <input type="button" id="noneRegister" value="취소" onclick="firstForm()">
-       </div>
-	       <div>
-	            <input type="button" onclick="window.location.href='${CP}/login';" value="로그인페이지">
-	            <input type="button" onclick="window.location.href='${CP}/';" value="홈페이지">	           
+           </div>
+	       <div style="margin: auto; margin-top: 20px;">
+	            <input type="button" class = "outbtn1" onclick="window.location.href='${CP}/login';" value="로그인페이지">
+	            <input type="button" class = "outbtn2" onclick="window.location.href='${CP}/';" value="홈페이지">	           
 	       </div>
      </form>
    <form method="POST" name="register_form">
          <input type="hidden" name="grade" id="grade" value="1">
          <input type="hidden" name="id" id="id">
          <input type="hidden" name="pw" id="pw">
-         <input type="hidden" name="email" id="email">
+         <input type="hidden" name="email" id="email">         
      </form>
 </div>    
 </body>
@@ -123,6 +124,16 @@
             }
             
           }
+      
+       function id_length_check() {
+           const registerId = document.getElementById('id_form').value;
+           
+           if(registerId.length < 6 || registerId.length > 20) {
+                 alert("아이디는 6~20글자로 구성되어야 합니다");
+                 document.getElementById('id_form').value='';
+            }
+           
+         }
     
       function check_email(event) {
          const hangul = /[^0-9a-zA-Z]/g;
@@ -153,7 +164,7 @@
 
             let registerId = document.getElementById('id_form').value;
             let registerPw = document.getElementById('pw2_form').value;
-            let registerEmail = document.getElementById('email_front').value+"@"+$('[name="email_back"]').val();
+            let registerEmail = document.getElementById('email_front').value || "@" || document.getElementById('email_front').value;
             
             
             document.register_form.id.value = registerId;
@@ -167,24 +178,16 @@
                 return false;
             }
             
-            if(registerId.length < 6 || registerId.length > 20) {
-                 alert("아이디는 6~20글자로 구성되어야 합니다");
-                 return false;
-            }
-            
             if("" == document.getElementById('pw_form').value || "" == document.getElementById('pw2_form').value) {
                 alert("비밀번호를 입력하세요");
                 return false;
             }
-           
-            
-            
-            if("" == document.getElementById('email_front').value || "" == $('[name="email_back"]').val()) {
+                  
+            if("" == document.getElementById('email_front').value || "" == document.getElementById('email_back').value) {
                 alert("이메일을 입력하세요");
                 return false;
             }
-            
-           
+                      
             $.ajax({
                 type: "POST",
               url:"${CP}/register",
@@ -195,7 +198,6 @@
                     uid: $("#id").val(),
                     upassword: $("#pw").val(),
                     uemail: $("#email").val()
-                   
                 },
                 success:function(data){//통신 성공
                     //console.log("success data:"+data);
@@ -279,7 +281,7 @@
         $("#emailDulpCheck").on("click",function(){
             console.log("emailDulpCheck ready");
             
-            var emial_str = $('#email_front').val()+"@"+$('input[name=email_back]').val()
+            var emial_str = $('#email_front').val()+"@"+ $('#email_back').val()
             console.log(emial_str);
             
             if(""==$('#email_front').val() || 0==$('#email_front').val().length){
@@ -287,9 +289,9 @@
               $('#email_front').focus();          // jquery로 포커스를 이동시킨다.
               return;
               
-          } if(""==$('input[name=email_back]').val() || 0==$('input[name=email_back]').val().length){
+          } if(""==$('#email_back').val() || 0==$('#email_front').val().length){
               alert("이메일 뒷자리를 입력하세요");  // javascript 메시지 다이얼 로그
-              $('input[name=email_back]').focus();          // jquery로 포커스를 이동시킨다.
+              $('#email_back').focus();          // jquery로 포커스를 이동시킨다.
               return;
               
           } else if(emial_str.search(/\s/) != -1) {
@@ -335,6 +337,8 @@
             
         });  // #idDulpCheck end
        
+       
+        
      }); 
      </script>
 </html>

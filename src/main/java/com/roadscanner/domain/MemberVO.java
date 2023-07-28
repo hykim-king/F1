@@ -6,6 +6,7 @@ public class MemberVO {
 	private String upassword; // 회원 비밀번호
 	private String uemail; // 회원 이메일
 	private int ugrade;// 회원 등급
+	private String mjtime;
 	
 	public MemberVO() {	}
 	
@@ -39,11 +40,18 @@ public class MemberVO {
 	public void setUgrade(int ugrade) {
 		this.ugrade = ugrade;
 	}
+	
+	public String getMjtime() {
+		return mjtime;
+	}
+	public void setMjtime(String mjtime) {
+		this.mjtime = mjtime;
+	}
+
 	@Override
 	public String toString() {
-		return "MemberVO [uid=" + uid + ", upassword=" + upassword + ", uemail=" + uemail + ", ugrade=" + ugrade + "]";
+		return "MemberVO [uid=" + uid + ", upassword=" + upassword + ", uemail=" + uemail + ", ugrade=" + ugrade
+				+ ", mjtime=" + mjtime + "]";
 	}
-	
-	
-	
+		
 }

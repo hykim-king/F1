@@ -32,6 +32,7 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
 
+
       /* 제목 스타일 */
       h1 {
         text-align: center;
@@ -93,7 +94,7 @@
         text-decoration: underline;
       }
     </style>
-    
+
 </head>
 <body>
     <div class="container">
