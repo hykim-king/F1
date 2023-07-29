@@ -43,7 +43,14 @@
         </form>
       </div><!-- pw 찾기 -->
       <a style="margin: auto;" href="${CP}/login">로그인 페이지</a>
-</div> <!-- container -->   
+</div> <!-- container --> 
+ 
+<c:if test="${user eq null}">  <!-- 유저 정보X -->
+    <div style="text-align: center; margin-top: 80px;">
+        <h4>로그인 이후 진행해주세요.</h4>
+        <h4><a href="${CP}/login">Go To 로그인</a></h4>
+    </div>            
+</c:if>  <!-- 유저 정보X-end -->
 </body> 
    <script>
     $(document).ready(function(){ //모든 화면이 다 로딩이 되면 실행하는 영역

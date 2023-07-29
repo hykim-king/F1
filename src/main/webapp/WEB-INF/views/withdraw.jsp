@@ -16,6 +16,7 @@
 
 </head>
 <body>
+<c:if test="${user ne null }">
     <div class="container">
         <h1>RoadScanner</h1>
         <form>
@@ -25,60 +26,68 @@
         <input type="hidden" id="uid"  value="${user.uid}">
         <input type="hidden" id="upw"  value="${user.upassword}">
         <button id="doWithdraw">회원 탈퇴하기</button>
-    </div>
-    <script>
-        $(document).ready(function() {
-            console.log("$document ready");
+   </div>
+</c:if>  
 
-            $("#doWithdraw").click(function() {
-                var password = $("#password").val();
-                
-                
+<c:if test="${user eq null}">  <!-- 유저 정보X -->
+	<div style="text-align: center; margin-top: 80px;">
+	    <h4>로그인 이후 진행해주세요.</h4>
+	    <h4><a href="${CP}/login">Go To 로그인</a></h4>
+	</div>            
+</c:if> <!-- 유저 정보X-end -->
+   <script>
+       $(document).ready(function() {
+           console.log("$document ready");
 
-                
-                // 확인 메시지 표시
-                if (!confirm('회원 탈퇴하시겠습니까?') == true) {
-                    return false;
-                }
-                
-                if($("#upassword").val() != $("#upw").val()) {
-                	alert("비밀번호가 다릅니다")
-                	console.log("비밀번호를 확인하세요");
-                }
-                    
-                else{
+           $("#doWithdraw").click(function() {
+               var password = $("#password").val();
+               
+               
+
+               
+               // 확인 메시지 표시
+               if (!confirm('회원 탈퇴하시겠습니까?') == true) {
+                   return false;
+               }
+               
+               if($("#upassword").val() != $("#upw").val()) {
+               	alert("비밀번호가 다릅니다")
+               	console.log("비밀번호를 확인하세요");
+               }
+                   
+               else{
 
 
-                // AJAX 요청을 보냅니다.
-                $.ajax({
-                    type: "POST",
-                    url:"${CP}/withdraw",
-                    dataType:"html",
-                    data: {
-                    	uid: $("#uid").val()
-                    },
-                    success:function(data) {
-                    	let parsedJSON = JSON.parse(data);
-                      	
-                       	if("10" == parsedJSON.msgId){
-                               alert(parsedJSON.msgContents);
-                               window.location.href="${CP}/login";
-                        } 
-                                              
-                        if("20" == parsedJSON.msgId){
-                            alert(parsedJSON.msgContents);
-                            return;
-                        }
-                        
-                    },
-                    error: function(data) {
-                        console.log("error:" + data);
-                    }
-                }); // --ajax
-                } // -- else
-            }); // --doWithdraw
-            
-        });
-    </script>
+               // AJAX 요청을 보냅니다.
+               $.ajax({
+                   type: "POST",
+                   url:"${CP}/withdraw",
+                   dataType:"html",
+                   data: {
+                   	uid: $("#uid").val()
+                   },
+                   success:function(data) {
+                   	let parsedJSON = JSON.parse(data);
+                     	
+                      	if("10" == parsedJSON.msgId){
+                              alert(parsedJSON.msgContents);
+                              window.location.href="${CP}/login";
+                       } 
+                                             
+                       if("20" == parsedJSON.msgId){
+                           alert(parsedJSON.msgContents);
+                           return;
+                       }
+                       
+                   },
+                   error: function(data) {
+                       console.log("error:" + data);
+                   }
+               }); // --ajax
+               } // -- else
+           }); // --doWithdraw
+           
+       });
+   </script>
 </body>
 </html>
