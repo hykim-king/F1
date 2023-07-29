@@ -30,9 +30,9 @@
 </c:if>  
 
 <c:if test="${user eq null}">  <!-- 유저 정보X -->
-	<div style="text-align: center; margin-top: 80px; margin: auto;">
+	<div style="text-align: center; margin:80px; auto;">
 	    <h4>로그인 이후 진행해주세요.</h4><p/>
-	    <input>
+	    <img alt="ddd" src="../resources/img/infinite.gif" loop = 1 >
 	    <h4><a href="${CP}/login">Go To 로그인</a></h4>
 	</div>            
 </c:if> <!-- 유저 정보X-end -->

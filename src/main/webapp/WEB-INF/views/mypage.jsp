@@ -16,7 +16,6 @@
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
 <title>RoadScanner mypage test</title>
 </head>
-<body class="d-flex flex-column min-vh-100">
   <header class="p-3 text-bg-white">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">       
@@ -42,44 +41,55 @@
       </div>
     </div>
   </header>
+  <body class="d-flex flex-column min-vh-100">
+  <c:if test="${user ne null }"> <!--  유저 정보O -->
   <h2 style="text-align: center; margin-top: 100px; margin-bottom: 80px;">${user.uid}의 마이페이지</h2>
 	  <div id="container">
-		  <form>
-		    <fieldset style="border:0 solid black;">
-		      <ul class="list-group" style="list-style: none;">
-			      <li>
-				      <label>아이디</label><br/>
-				      <input class="form-control" type="text" id="uid" readonly="readonly" value="${user.uid}">
-				    </li>
-				    <li>
-				      <label>비밀번호 수정</label><br/>
-				      <input class="form-control" type="password" id="upassword" placeholder="문자, 숫자, 특수문자 포함 8~20글자)" >
-				    </li>
-				    <li>
-				      <label>비밀번호 확인</label>
-				      <label id="pw_check"></label><br/>
-				      <input class="form-control" type="password" id="upassword2" placeholder="비밀번호 재입력" onchange="check_pw()">
-				    </li>
-				    <li>
-				      <label>이메일</label><br/>
-				      <input class="form-control" type="text" id="uemail" readonly="readonly" value="${user.uemail}">
-				    </li>
-			    </ul>
-		    </fieldset>
-		  </form>
-		</div>
-		<div class="update_btn">
-	    <input type="button" class="btn btn-outline-primary" id="update" value="수정">
-	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    <input type="button" class="btn btn-outline-danger" id="cancel" value="취소">
-    </div>
-    <div class="qna_btn">
-       <input type="button" class="btn btn-outline-dark" id="myQnAboard" value="내 QnA보기">
-    </div>
-    <div class="draw_btn">
-       <input type="button" class="btn btn-outline-dark" id="withdraw" value="탈퇴">
-    </div>
-</body>
+			  <form>
+			    <fieldset style="border:0 solid black;">
+			      <ul class="list-group" style="list-style: none;">
+				      <li>
+					      <label>아이디</label><br/>
+					      <input class="form-control" type="text" id="uid" readonly="readonly" value="${user.uid}">
+					    </li>
+					    <li>
+					      <label>비밀번호 수정</label><br/>
+					      <input class="form-control" type="password" id="upassword" placeholder="문자, 숫자, 특수문자 포함 8~20글자)" >
+					    </li>
+					    <li>
+					      <label>비밀번호 확인</label>
+					      <label id="pw_check"></label><br/>
+					      <input class="form-control" type="password" id="upassword2" placeholder="비밀번호 재입력" onchange="check_pw()">
+					    </li>
+					    <li>
+					      <label>이메일</label><br/>
+					      <input class="form-control" type="text" id="uemail" readonly="readonly" value="${user.uemail}">
+					    </li>
+				    </ul>
+			    </fieldset>
+			  </form>
+			</div>
+			<div class="update_btn">
+		    <input type="button" class="btn btn-outline-primary" id="update" value="수정">
+		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		    <input type="button" class="btn btn-outline-danger" id="cancel" value="취소">
+	    </div>
+	    <div class="qna_btn">
+	       <input type="button" class="btn btn-outline-dark" id="myQnAboard" value="내 QnA보기">
+	    </div>
+	    <div class="draw_btn">
+	       <input type="button" class="btn btn-outline-dark" id="withdraw" value="탈퇴">
+	    </div>
+	</c:if>
+	
+	<c:if test="${user eq null}">  <!-- 유저 정보X -->
+    <div style="text-align: center; margin:80px auto;">
+        <h4>로그인 이후 진행해주세요.</h4><p/>
+        <img alt="ddd" src="../resources/img/infinite.gif" loop = 1 >
+        <h4><a href="${CP}/login">Go To 로그인</a></h4>
+    </div>            
+    </c:if> <!-- 유저 정보X-end -->
+	</body>
 
   <footer class="py-3 my-4 mt-auto">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
