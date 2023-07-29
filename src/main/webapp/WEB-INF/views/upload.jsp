@@ -139,27 +139,27 @@
 </style>
 </head>
 <body>
-	<div class="left">
-	  <form action="/roadscanner/fileUploaded" method="post" enctype="multipart/form-data">
-	    <div id="previewGroup" style="display: flex; flex-direction: row;">
-	      <label id="fileUploadLabel" for="fileUpload" style="display: block; cursor: pointer;">
-	        <img id="selectButtonImg" alt="SelectButton" src="${CP}/resources/img/selectButton.jpg" width="400" height="400">
-	      </label>
-	      <!-- 파일 선택 -->
-	      <input id=fileUpload name="file" type="file" accept=".jpg, .jpeg, .png, .bmp, .tiff, .webp, .ico, .svg" onchange="displaySelectedFile(event)">
-	      <div id="cancelContainer">
-	        <img id="selectedImage" alt="Selected Image">
-	        <button id="cancelButton" type="button" class="btn btn-link">
-	          <img alt="XButton" src="${CP}/resources/img/cancel.png">
-	        </button>
-	      </div>
-	    </div>
-	    <!-- 모델로 사진 전송, 실행 -->
-	    <div id="RunContainer" style="display: none;">
-	      <input type="submit" value="표지판 알아보기" id="runButton">
-	    </div>
-	  </form>
-	</div>
+  <div class="left">
+    <form action="fileUploaded" method="post" enctype="multipart/form-data" onsubmit="return false;">
+      <div id="previewGroup" style="display: flex; flex-direction: row;">
+        <label id="fileUploadLabel" for="fileUpload" style="display: block; cursor: pointer;">
+          <img id="selectButtonImg" alt="SelectButton" src="${CP}/resources/img/selectButton.jpg" width="400" height="400">
+        </label>
+        <!-- 파일 선택 -->
+        <input id=fileUpload name="fileUpload" type="file" accept=".jpg, .jpeg, .png, .bmp, .tiff, .webp, .ico, .svg" onchange="displaySelectedFile(event)" style="display: none;">
+        <div id="cancelContainer">
+          <img id="selectedImage" alt="Selected Image">
+          <button id="cancelButton" type="button" class="btn btn-link">
+            <img alt="XButton" src="${CP}/resources/img/cancel.png">
+          </button>
+        </div>
+      </div>
+      <!-- 모델로 사진 전송, 실행 -->
+      <div id="RunContainer" style="display: none;">
+        <input type="submit" value="표지판 알아보기" id="runButton">
+      </div>
+    </form>
+  </div>
 
   <div class="divider"></div>
 
@@ -260,53 +260,51 @@
     // 선택 상자 End-----------------------------------------------------------------
   </script>
   
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
   <script>
-		//"Run" 버튼 클릭 시 호출되는 함수
-		  function showRightContent() {
-		    let rightDiv = document.getElementById('rightContent');
-		    rightDiv.style.display = 'block';
-		  }
-		
-		  // 파일 업로드 요청을 처리하는 함수
-		  function uploadFileToS3() {
-		    const fileInput = document.getElementById('fileUpload');
-		    const file = fileInput.files[0];
-		
-		    if (file) {
-		      const formData = new FormData();
-		      formData.append('file', file);
-		
-		      // AWS S3로 파일 업로드 요청 보내기
-		      fetch('/road-scanner/fileUploaded', {
-		        method: 'POST',
-		        body: formData
-		      })
-		      .then(response => {
-		        if (response.ok) {
-		          alert('파일 업로드가 완료되었습니다.');
-		          showRightContent(); // 파일 업로드가 완료되면 rightContent 보이기
-		          console.log('fileUploaded_ok');
-		        } else {
-		          alert('파일 업로드에 실패하였습니다.');
-		        }
-		      })
-		      .catch(error => {
-		        console.error('파일 업로드 오류:', error);
-		        alert('파일 업로드에 실패하였습니다.');
-		        console.log('fileUploaded_None');
-		      });
-		    } else {
-		      alert('파일을 선택해주세요.');
-		    }
-		
-		    console.log('uploadFileToS3()');
-		  }
-		
-		  // "Run" 버튼 클릭 이벤트에 파일 업로드 함수를 연결
-		  let runButton = document.getElementById('runButton');
-		  runButton.addEventListener('click', function() {
-		    uploadFileToS3();
-		  });
+    // "Run" 버튼 클릭 시 호출되는 함수
+    function showRightContent() {
+      let rightDiv = document.getElementById('rightContent');
+      rightDiv.style.display = 'block';
+    }
+  
+    // 파일 업로드 요청을 처리하는 함수
+    function uploadFileToS3() {
+      const fileInput = document.getElementById('fileUpload');
+      const file = fileInput.files[0];
+  
+      if (file) {
+        const formData = new FormData();
+        formData.append('file', file);
+  
+        // AWS S3로 파일 업로드 요청 보내기
+        fetch('/road-scanner/fileUploaded', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          if (response.ok) {
+            alert('파일 업로드가 완료되었습니다.');
+            showRightContent(); // 파일 업로드가 완료되면 rightContent 보이기
+          } else {
+            alert('파일 업로드에 실패하였습니다.');
+          }
+        })
+        .catch(error => {
+          console.error('파일 업로드 오류:', error);
+          alert('파일 업로드에 실패하였습니다.');
+        });
+      } else {
+        alert('파일을 선택해주세요.');
+      }
+      
+      console.log(`uploadFileToS3`);
+    }
+  
+    // "Run" 버튼 클릭 이벤트에 파일 업로드 함수를 연결
+    let runButton = document.getElementById('runButton');
+    runButton.addEventListener('click', uploadFileToS3);
+  
   </script>
 </body>
 </html>
