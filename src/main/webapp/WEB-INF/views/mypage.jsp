@@ -7,16 +7,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"  href="resources/css/mypage.css">
-<link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
+<link rel="stylesheet"  href="${CP}/resources/css/mypage.css">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<link  href="${CP}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet"  crossorigin="anonymous">
 <script src="${CP}/resources/js/bootstrap/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
 <script src="${CP}/resources/js/jquery-3.7.0.js"></script>
 <title>RoadScanner mypage test</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+  <header class="p-3 text-bg-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">       
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="#" class="nav-link px-2 text-secondary">Features</a></li>
+          <li><a href="#" class="nav-link px-2 text-secondary">Pricing</a></li>
+          <li><a href="#" class="nav-link px-2 text-secondary">FAQs</a></li>
+          <li><a href="#" class="nav-link px-2 text-secondary">About</a></li>
+        </ul>
+
+        <div class="text-end">
+        <c:if test="${user ne null}">
+          <button type="button" class="btn btn-warning me-2">LogOut</button>
+          <button type="button" class="btn btn-warning me-2">MyPage</button>
+        </c:if>
+        <c:if test="${user eq null}">
+          <button type="button" id="login" class="btn btn-warning me-2">Login</button>
+        </c:if>
+          <button type="button" class="btn btn-warning">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </header>
   <h2 style="text-align: center; margin-top: 100px; margin-bottom: 80px;">${user.uid}의 마이페이지</h2>
 	  <div id="container">
 		  <form>
@@ -44,17 +69,29 @@
 		  </form>
 		</div>
 		<div class="update_btn">
-		    <input type="button" class="btn btn-outline-primary" id="update" value="수정">
-		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		    <input type="button" class="btn btn-outline-danger" id="cancel" value="취소">
-	    </div>
-        <div class="qna_btn">
-        <input type="button" class="btn btn-outline-dark" id="myQnAboard" value="내 QnA보기">
-        </div>
-        <div class="draw_btn">
-        <input type="button" class="btn btn-outline-dark" id="withdraw" value="탈퇴">
-        </div>
+	    <input type="button" class="btn btn-outline-primary" id="update" value="수정">
+	    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <input type="button" class="btn btn-outline-danger" id="cancel" value="취소">
+    </div>
+    <div class="qna_btn">
+       <input type="button" class="btn btn-outline-dark" id="myQnAboard" value="내 QnA보기">
+    </div>
+    <div class="draw_btn">
+       <input type="button" class="btn btn-outline-dark" id="withdraw" value="탈퇴">
+    </div>
 </body>
+
+  <footer class="py-3 my-4 mt-auto">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">&copy; 2023 F1 TEAM, RoadScanner Project</p>
+  </footer>
+
 <script>
 function check_pw() {
     var pw = document.getElementById('upassword').value;
@@ -91,6 +128,12 @@ function check_pw() {
 
 $(document).ready(function(){  //모든 화면이 다 로딩이 되면 실행하는 영역
    console.log("document ready");
+   
+   $("#login").on("click", function(){
+	   
+	   window.location.href="${CP}/login";
+	   
+   }); // login click
    
    $("#withdraw").on("click", function(){
 	      
